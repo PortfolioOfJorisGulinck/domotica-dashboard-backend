@@ -1,5 +1,6 @@
-package be.jorisgulinck.domoticaspringbackend.models;
+package be.jorisgulinck.domoticaspringbackend.models.user;
 
+import be.jorisgulinck.domoticaspringbackend.models.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

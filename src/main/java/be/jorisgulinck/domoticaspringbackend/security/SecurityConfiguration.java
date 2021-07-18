@@ -1,4 +1,4 @@
-package be.jorisgulinck.domoticaspringbackend.auth;
+package be.jorisgulinck.domoticaspringbackend.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,8 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/user").authenticated()
-                .antMatchers("/").permitAll()
+                .antMatchers("/*").authenticated()
                 .and().formLogin();
     }
 

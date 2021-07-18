@@ -1,6 +1,6 @@
 package be.jorisgulinck.domoticaspringbackend.auth;
 
-import be.jorisgulinck.domoticaspringbackend.models.User;
+import be.jorisgulinck.domoticaspringbackend.models.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

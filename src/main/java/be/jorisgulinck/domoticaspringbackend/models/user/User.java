@@ -1,9 +1,9 @@
-package be.jorisgulinck.domoticaspringbackend.models;
+package be.jorisgulinck.domoticaspringbackend.models.user;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "User")
+@Table
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
