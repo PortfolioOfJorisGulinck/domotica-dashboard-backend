@@ -14,6 +14,14 @@ public class FloorService implements CrudService<Floor> {
     @Autowired
     private FloorRepository floorRepository;
 
+    public FloorService() {
+    }
+
+    @Override
+    public Floor save(Floor floor) {
+        return floorRepository.save(floor);
+    }
+
     @Override
     public Floor getById(int id) {
         return floorRepository.findById(id)
@@ -23,11 +31,6 @@ public class FloorService implements CrudService<Floor> {
     @Override
     public List<Floor> getAll() {
         return floorRepository.findAll();
-    }
-
-    @Override
-    public Floor save(Floor floor) {
-        return floorRepository.save(floor);
     }
 
     @Override

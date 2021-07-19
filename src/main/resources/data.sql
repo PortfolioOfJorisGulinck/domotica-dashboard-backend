@@ -1,3 +1,4 @@
+-- Creation and populating User table
 CREATE TABLE User (
     id integer not null,
     active boolean not null,
@@ -8,3 +9,5 @@ CREATE TABLE User (
 );
 
 INSERT INTO User (id, userName, password, active, roles) VALUES (1, 'user', 'user', true, 'USER');
+
+-- TODO Creation tables and datapopulation floors, schemes and rooms

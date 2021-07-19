@@ -1,6 +1,5 @@
 package be.jorisgulinck.domoticaspringbackend.security;
 
-import be.jorisgulinck.domoticaspringbackend.auth.UserRepository;
 import be.jorisgulinck.domoticaspringbackend.models.user.MyUserDetails;
 import be.jorisgulinck.domoticaspringbackend.models.user.User;
 import org.springframework.beans.factory.annotation.Autowired;

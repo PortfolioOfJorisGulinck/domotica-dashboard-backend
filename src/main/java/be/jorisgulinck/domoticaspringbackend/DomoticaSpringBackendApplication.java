@@ -1,6 +1,6 @@
 package be.jorisgulinck.domoticaspringbackend;
 
-import be.jorisgulinck.domoticaspringbackend.auth.UserRepository;
+import be.jorisgulinck.domoticaspringbackend.security.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;

@@ -1,79 +1,85 @@
 package be.jorisgulinck.domoticaspringbackend.controllers;
 
+import be.jorisgulinck.domoticaspringbackend.dto.DtoMapper;
+import be.jorisgulinck.domoticaspringbackend.dto.FloorDto;
 import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
 import be.jorisgulinck.domoticaspringbackend.services.FloorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @RequestMapping("/floors")
 public class FloorController {
 
-    //final static Logger logger = Logger.getLogger(FloorController.class);
-    // TODO dto bijvoegen
+    // https://www.bytestree.com/spring/restful-web-service-crud-operation-spring-boot-example/
+    // https://www.thetopsites.net/article/54050430.shtml
+    final static Logger logger = Logger.getLogger(FloorController.class);
 
     @Autowired
     FloorService floorService;
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Floor> addFloor(@RequestBody Floor floor) {
-        floorService.save(floor);
-        //logger.debug("Added:: " + floor);
-        return new ResponseEntity<Floor>(floor, HttpStatus.CREATED);
+    @Autowired
+    DtoMapper dtoMapper;
+
+    @PostMapping
+    public ResponseEntity<FloorDto> addFloor(@RequestBody FloorDto floorDto) {
+        floorService.save(dtoMapper.floorDtoToFloor(floorDto));
+        logger.debug("Added:: " + floorDto);
+        return new ResponseEntity<>(floorDto, HttpStatus.CREATED);
     }
 
-
-    @RequestMapping(method = RequestMethod.PUT)
-    public ResponseEntity<Void> updateFloor(@RequestBody Floor floor) {
-        Floor existingFloor = floorService.getById(floor.getId());
+    @PutMapping
+    public ResponseEntity<Void> updateFloor(@RequestBody FloorDto floorDto) {
+        Floor existingFloor = floorService.getById(floorDto.getId());
         if (existingFloor == null) {
-            //logger.debug("Employee with id " + floor.getId() + " does not exists");
-            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+            logger.debug("Floor with id " + floorDto.getId() + " does not exists");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            floorService.save(floor);
-            return new ResponseEntity<Void>(HttpStatus.OK);
+            floorService.save(dtoMapper.floorDtoToFloor(floorDto));
+            return new ResponseEntity<>(HttpStatus.OK);
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Floor>> getAllFloors() {
+    @GetMapping
+    public ResponseEntity<List<FloorDto>> getAllFloors() {
         List<Floor> floors = floorService.getAll();
         if (floors.isEmpty()) {
-            //logger.debug("Employees does not exists");
-            return new ResponseEntity<List<Floor>>(HttpStatus.NO_CONTENT);
+            logger.debug("There ar no floors");
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        //logger.debug("Found " + floors.size() + " Employees");
-        //logger.debug(floors);
-        //logger.debug(Arrays.toString(floors.toArray()));
-        return new ResponseEntity<List<Floor>>(floors, HttpStatus.OK);
+        logger.debug("Found " + floors.size() + " floors");
+        logger.debug(floors);
+        logger.debug(Arrays.toString(floors.toArray()));
+        return new ResponseEntity<>(dtoMapper.floorsToDtoList(floors), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.GET)
-    public ResponseEntity<Floor> getFloor(@PathVariable("id") int id) {
+    @GetMapping(value = "{id}")
+    public ResponseEntity<FloorDto> getFloor(@PathVariable("id") int id) {
         Floor floor = floorService.getById(id);
         if (floor == null) {
-            //logger.debug("Floor with id " + id + " does not exists");
-            return new ResponseEntity<Floor>(HttpStatus.NOT_FOUND);
+            logger.debug("Floor with id " + id + " does not exists");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        //logger.debug("Found Employee:: " + floor);
-        return new ResponseEntity<Floor>(floor, HttpStatus.OK);
+        logger.debug("Found floor:: " + floor);
+        return new ResponseEntity<>(dtoMapper.floorToDto(floor), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteFloor(@PathVariable("id") int id) {
         Floor floor = floorService.getById(id);
         if (floor == null) {
-            //logger.debug("Employee with id " + id + " does not exists");
-            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+            logger.debug("Floor with id " + id + " does not exists");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             floorService.delete(id);
-            //logger.debug("Employee with id " + id + " deleted");
-            return new ResponseEntity<Void>(HttpStatus.GONE);
+            logger.debug("Floor with id " + id + " deleted");
+            return new ResponseEntity<>(HttpStatus.GONE);
         }
     }
 }
