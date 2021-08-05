@@ -1,40 +1,33 @@
 package be.jorisgulinck.domoticaspringbackend.dto;
 
-import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
+
+import java.util.List;
 
 public class RoomDto {
 
     private int id;
     private String name;
     private String description;
-    private String lighting;
-    private String music;
-    private int top;
-    private int left;
-    private int width;
-    private int height;
-    private Floor floor;
+    private String services;
+    private String position;
+    private String dimension;
+    private int floorId;
+    private String schemes;
 
-    public Floor getFloor() {
-        return floor;
+    public RoomDto() {
     }
 
-    public void setFloor(Floor floor) {
-        this.floor = floor;
-    }
-
-    public RoomDto(int id, String name, String description, String lighting, String music, int top,
-                   int left, int width, int height, Floor floor) {
+    public RoomDto(int id, String name, String description, String services, String position, String dimension, int floorId, String schemes) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.lighting = lighting;
-        this.music = music;
-        this.top = top;
-        this.left = left;
-        this.width = width;
-        this.height = height;
-        this.floor = floor;
+        this.services = services;
+        this.position = position;
+        this.dimension = dimension;
+        this.floorId = floorId;
+        this.schemes = schemes;
     }
 
     public int getId() {
@@ -61,51 +54,43 @@ public class RoomDto {
         this.description = description;
     }
 
-    public String getLighting() {
-        return lighting;
+    public String getServices() {
+        return services;
     }
 
-    public void setLighting(String lighting) {
-        this.lighting = lighting;
+    public void setServices(String services) {
+        this.services = services;
     }
 
-    public String getMusic() {
-        return music;
+    public String getPosition() {
+        return position;
     }
 
-    public void setMusic(String music) {
-        this.music = music;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-    public int getTop() {
-        return top;
+    public String getDimension() {
+        return dimension;
     }
 
-    public void setTop(int top) {
-        this.top = top;
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
     }
 
-    public int getLeft() {
-        return left;
+    public int getFloor() {
+        return floorId;
     }
 
-    public void setLeft(int left) {
-        this.left = left;
+    public void setFloor(String floor) {
+        this.floorId = floorId;
     }
 
-    public int getWidth() {
-        return width;
+    public String getSchemes() {
+        return schemes;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
+    public void setSchemes(String schemes) {
+        this.schemes = schemes;
     }
 }

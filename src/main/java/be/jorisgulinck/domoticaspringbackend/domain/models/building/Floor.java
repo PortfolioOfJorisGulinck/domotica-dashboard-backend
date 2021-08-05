@@ -1,4 +1,4 @@
-package be.jorisgulinck.domoticaspringbackend.models.building;
+package be.jorisgulinck.domoticaspringbackend.domain.models.building;
 
 import javax.persistence.*;
 import java.util.List;
@@ -6,14 +6,15 @@ import java.util.List;
 @Entity
 public class Floor {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "floor_id")
     private int id;
+
+    @Column(unique = true, nullable = false)
     private String name;
+
     private String image;
 
-    @OneToMany(mappedBy = "floor",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "floor")
     private List<Room> rooms;
 
     public Floor() {

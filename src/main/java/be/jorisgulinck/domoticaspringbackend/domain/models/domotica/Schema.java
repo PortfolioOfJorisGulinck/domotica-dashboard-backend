@@ -1,33 +1,35 @@
-package be.jorisgulinck.domoticaspringbackend.models.domotica;
+package be.jorisgulinck.domoticaspringbackend.domain.models.domotica;
 
-import be.jorisgulinck.domoticaspringbackend.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.domain.models.service.Service;
+import be.jorisgulinck.domoticaspringbackend.domain.models.service.ServiceType;
+import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 
 import javax.persistence.*;
 
 @Entity
 public class Schema {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "schema_id")
     private int id;
-    private String service;
-    private String amount;
+
     private String start;
+
     private String end;
 
+    @OneToOne
+    private Service service;
+
     @ManyToOne
-    @JoinColumn(name = "roomId",
-            nullable = false)
     private Room room;
 
     public Schema() {
     }
 
-    public Schema(int id, String service, String amount, String start, String end, Room room) {
+    public Schema(int id, String start, String end, Service service, Room room) {
         this.id = id;
-        this.service = service;
-        this.amount = amount;
         this.start = start;
         this.end = end;
+        this.service = service;
         this.room = room;
     }
 
@@ -39,20 +41,12 @@ public class Schema {
         this.id = id;
     }
 
-    public String getService() {
+    public Service getService() {
         return service;
     }
 
-    public void setService(String service) {
+    public void setService(Service service) {
         this.service = service;
-    }
-
-    public String getAmount() {
-        return amount;
-    }
-
-    public void setAmount(String amount) {
-        this.amount = amount;
     }
 
     public String getStart() {
@@ -78,4 +72,6 @@ public class Schema {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+
 }

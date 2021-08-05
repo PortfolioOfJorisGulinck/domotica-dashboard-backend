@@ -1,4 +1,4 @@
-package be.jorisgulinck.domoticaspringbackend.models.user;
+package be.jorisgulinck.domoticaspringbackend.domain.models.user;
 
 import javax.persistence.*;
 
@@ -12,6 +12,17 @@ public class User {
     private String password;
     private boolean active;
     private String roles;
+
+    public User() {
+    }
+
+    public User(int id, String userName, String password, boolean active, String roles) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+        this.active = active;
+        this.roles = roles;
+    }
 
     public int getId() {
         return id;

@@ -2,7 +2,7 @@ package be.jorisgulinck.domoticaspringbackend.controllers;
 
 import be.jorisgulinck.domoticaspringbackend.dto.DtoMapper;
 import be.jorisgulinck.domoticaspringbackend.dto.FloorDto;
-import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
 import be.jorisgulinck.domoticaspringbackend.services.FloorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +29,7 @@ public class FloorController {
 
     @PostMapping
     public ResponseEntity<FloorDto> addFloor(@RequestBody FloorDto floorDto) {
-        floorService.save(dtoMapper.floorDtoToFloor(floorDto));
+        //floorService.save(dtoMapper.floorDtoToFloor(floorDto));
         logger.debug("Added:: " + floorDto);
         return new ResponseEntity<>(floorDto, HttpStatus.CREATED);
     }
@@ -41,7 +41,7 @@ public class FloorController {
             logger.debug("Floor with id " + floorDto.getId() + " does not exists");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            floorService.save(dtoMapper.floorDtoToFloor(floorDto));
+           // floorService.save(dtoMapper.floorDtoToFloor(floorDto));
             return new ResponseEntity<>(HttpStatus.OK);
         }
     }
@@ -56,7 +56,7 @@ public class FloorController {
         logger.debug("Found " + floors.size() + " floors");
         logger.debug(floors);
         logger.debug(Arrays.toString(floors.toArray()));
-        return new ResponseEntity<>(dtoMapper.floorsToDtoList(floors), HttpStatus.OK);
+        return null; //new ResponseEntity<>(dtoMapper.floorsToDtoList(floors), HttpStatus.OK);
     }
 
     @GetMapping(value = "{id}")
@@ -67,7 +67,7 @@ public class FloorController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         logger.debug("Found floor:: " + floor);
-        return new ResponseEntity<>(dtoMapper.floorToDto(floor), HttpStatus.OK);
+        return null; // new ResponseEntity<>(dtoMapper.floorToDto(floor), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

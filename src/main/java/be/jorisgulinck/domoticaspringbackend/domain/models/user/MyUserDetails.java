@@ -1,6 +1,5 @@
-package be.jorisgulinck.domoticaspringbackend.models.user;
+package be.jorisgulinck.domoticaspringbackend.domain.models.user;
 
-import be.jorisgulinck.domoticaspringbackend.models.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +15,9 @@ public class MyUserDetails implements UserDetails {
     private String password;
     private boolean active;
     private List<GrantedAuthority> authorities;
+
+    public MyUserDetails() {
+    }
 
     public MyUserDetails(User user) {
         this.userName = user.getUserName();

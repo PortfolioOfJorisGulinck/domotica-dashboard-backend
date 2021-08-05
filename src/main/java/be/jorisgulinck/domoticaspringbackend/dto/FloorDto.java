@@ -1,7 +1,5 @@
 package be.jorisgulinck.domoticaspringbackend.dto;
 
-import be.jorisgulinck.domoticaspringbackend.models.building.Room;
-
 import java.util.List;
 
 public class FloorDto {

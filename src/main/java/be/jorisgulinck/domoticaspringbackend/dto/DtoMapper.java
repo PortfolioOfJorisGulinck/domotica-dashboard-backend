@@ -1,8 +1,8 @@
 package be.jorisgulinck.domoticaspringbackend.dto;
 
-import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
-import be.jorisgulinck.domoticaspringbackend.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.models.domotica.Schema;
+import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
 import be.jorisgulinck.domoticaspringbackend.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,6 +12,7 @@ import java.util.List;
 @Component
 public class DtoMapper {
 
+    /*
     @Autowired
     RoomService roomService;
 
@@ -52,28 +53,26 @@ public class DtoMapper {
                 room.getId(),
                 room.getName(),
                 room.getDescription(),
-                room.getLighting(),
-                room.getMusic(),
-                room.getTop(),
-                room.getLeft(),
-                room.getWidth(),
-                room.getHeight(),
-                room.getFloor());
+                room.getServices().toString(),
+                room.getPosition().toString(),
+                room.getDimension().toString(),
+                room.getFloor().getId(),
+                room.getSchemes().toString());
     }
+
 
     public Room roomDtoToRoom(RoomDto roomDto) {
         return new Room(
                 roomDto.getId(),
                 roomDto.getName(),
                 roomDto.getDescription(),
-                roomDto.getLighting(),
-                roomDto.getMusic(),
-                roomDto.getTop(),
-                roomDto.getLeft(),
-                roomDto.getWidth(),
-                roomDto.getHeight(),
-                roomDto.getFloor());
+                roomDto.getServices(),
+                roomDto.getDimension(),
+                roomDto.getPosition(),
+                roomDto.getFloor(),
+                roomDto.getSchemes());
     }
+
 
     public SchemaDto schemaToDto(Schema schema) {
         return new SchemaDto(
@@ -94,4 +93,5 @@ public class DtoMapper {
                 schemaDto.getEnd(),
                 schemaDto.getRoom());
     }
+    */
 }

@@ -1,6 +1,6 @@
 package be.jorisgulinck.domoticaspringbackend.repository;
 
-import be.jorisgulinck.domoticaspringbackend.models.domotica.Schema;
+import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

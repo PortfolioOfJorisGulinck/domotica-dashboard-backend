@@ -1,19 +1,20 @@
 package be.jorisgulinck.domoticaspringbackend.dto;
 
-import be.jorisgulinck.domoticaspringbackend.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.domain.models.service.ServiceType;
+import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 
 public class SchemaDto {
 
     private int id;
-    private String service;
+    private ServiceType serviceType;
     private String amount;
     private String start;
     private String end;
     private Room room;
 
-    public SchemaDto(int id, String service, String amount, String start, String end, Room room) {
+    public SchemaDto(int id, ServiceType serviceType, String amount, String start, String end, Room room) {
         this.id = id;
-        this.service = service;
+        this.serviceType = serviceType;
         this.amount = amount;
         this.start = start;
         this.end = end;
@@ -28,12 +29,12 @@ public class SchemaDto {
         this.id = id;
     }
 
-    public String getService() {
-        return service;
+    public ServiceType getService() {
+        return serviceType;
     }
 
-    public void setService(String service) {
-        this.service = service;
+    public void setService(ServiceType serviceType) {
+        this.serviceType = serviceType;
     }
 
     public String getAmount() {
