@@ -1,23 +1,26 @@
 package be.jorisgulinck.domoticaspringbackend.domain.models.domotica;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.Service;
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.ServiceType;
+import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationService;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "schemes")
 public class Schema {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schema_id")
     private int id;
 
+    @Column(name = "start")
     private String start;
 
+    @Column(name = "end")
     private String end;
 
     @OneToOne
-    private Service service;
+    private AutomationService automationService;
 
     @ManyToOne
     private Room room;
@@ -25,11 +28,11 @@ public class Schema {
     public Schema() {
     }
 
-    public Schema(int id, String start, String end, Service service, Room room) {
+    public Schema(int id, String start, String end, AutomationService automationService, Room room) {
         this.id = id;
         this.start = start;
         this.end = end;
-        this.service = service;
+        this.automationService = automationService;
         this.room = room;
     }
 
@@ -41,12 +44,12 @@ public class Schema {
         this.id = id;
     }
 
-    public Service getService() {
-        return service;
+    public AutomationService getService() {
+        return automationService;
     }
 
-    public void setService(Service service) {
-        this.service = service;
+    public void setService(AutomationService automationService) {
+        this.automationService = automationService;
     }
 
     public String getStart() {

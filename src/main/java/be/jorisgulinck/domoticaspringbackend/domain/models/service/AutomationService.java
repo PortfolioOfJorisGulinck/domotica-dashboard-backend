@@ -7,15 +7,18 @@ import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
 import javax.persistence.*;
 
 @Entity
-public class Service {
+@Table(name = "services")
+public class AutomationService {
 
     @Id
     @Column(name = "service_id")
     private int id;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "service_type")
     private ServiceType serviceType;
 
+    @Column(name = "value")
     private String value;
 
     @ManyToOne
@@ -24,17 +27,17 @@ public class Service {
     @OneToOne
     private Schema schema;
 
-    public Service() {
+    public AutomationService() {
     }
 
-    public Service(int id, ServiceType serviceType, String value, Room room) {
+    public AutomationService(int id, ServiceType serviceType, String value, Room room) {
         this.id = id;
         this.serviceType = serviceType;
         this.value = value;
         this.room = room;
     }
 
-    public Service(int id, ServiceType serviceType, String value, Schema schema) {
+    public AutomationService(int id, ServiceType serviceType, String value, Schema schema) {
         this.id = id;
         this.serviceType = serviceType;
         this.value = value;

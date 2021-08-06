@@ -4,14 +4,16 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "floors")
 public class Floor {
     @Id
     @Column(name = "floor_id")
     private int id;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "name" , nullable = false)
     private String name;
 
+    @Column(name = "image")
     private String image;
 
     @OneToMany(mappedBy = "floor")

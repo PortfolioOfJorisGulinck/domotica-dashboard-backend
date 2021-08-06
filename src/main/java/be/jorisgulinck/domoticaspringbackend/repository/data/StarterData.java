@@ -5,32 +5,18 @@ import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Position;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.Service;
+import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationService;
 import be.jorisgulinck.domoticaspringbackend.domain.models.service.ServiceType;
 import be.jorisgulinck.domoticaspringbackend.domain.models.user.User;
-import be.jorisgulinck.domoticaspringbackend.repository.FloorRepository;
-import be.jorisgulinck.domoticaspringbackend.repository.RoomRepository;
-import be.jorisgulinck.domoticaspringbackend.repository.SchemaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import be.jorisgulinck.domoticaspringbackend.repository.UserRepository;
 
+import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StarterData {
 
-    @Autowired
-    private FloorRepository floorRepository;
-
-    @Autowired
-    private RoomRepository roomRepository;
-
-    @Autowired
-    private SchemaRepository schemaRepository;
-
-
-    public void fillDatabase() {
-        // User
-        User user = new User(1, "user", "user", true, "USER");
+    public void fillDatabase(EntityManager entityManager) {
 
         // Basement
         Floor basement = new Floor();
@@ -44,9 +30,9 @@ public class StarterData {
         room1.setName("Wijnkelder");
         room1.setDescription("Deze wijnkelder bevat een collectie van unieke wijnen, daterend van 1940 tem 2020. De eigenaar is opgegroeid in de wijngaard van zijn vader te Duitsland. Deze wijnkelder bevat unieke Riesling wijnen om van te dromen.");
 
-        List<Service> servicesOfRoom1 = new ArrayList<>();
-        servicesOfRoom1.add(new Service(1, ServiceType.LIGHTING, "8", room1));
-        servicesOfRoom1.add(new Service(2, ServiceType.MUSIC, "6", room1));
+        List<AutomationService> servicesOfRoom1 = new ArrayList<>();
+        servicesOfRoom1.add(new AutomationService(1, ServiceType.LIGHTING, "8", room1));
+        servicesOfRoom1.add(new AutomationService(2, ServiceType.MUSIC, "6", room1));
         room1.setServices(servicesOfRoom1);
 
         room1.setDimension(new Dimension(1, 200, 200, room1));
@@ -59,8 +45,8 @@ public class StarterData {
         room2.setName("Nutskamer");
         room2.setDescription("Deze ruimte bevat de boiler, electriciteitsmeter en waterstandmeter.");
 
-        List<Service> servicesOfRoom2 = new ArrayList<>();
-        servicesOfRoom2.add(new Service(3, ServiceType.LIGHTING, "10", room2));
+        List<AutomationService> servicesOfRoom2 = new ArrayList<>();
+        servicesOfRoom2.add(new AutomationService(3, ServiceType.LIGHTING, "10", room2));
         room2.setServices(servicesOfRoom2);
 
         room2.setDimension(new Dimension(2, 300, 300, room2));
@@ -85,11 +71,11 @@ public class StarterData {
         room3.setName("Woonkamer");
         room3.setDescription("Deze woonkamer, in klassieke stijl, is speciaal ontworpen door de vrouw des huizes. Zij is afkomstig van Groot Brittanië en stond erop om deze kamer in een klassieke cottage stijl in te richten om zich thuis te kunnen voelen in Duitsland.");
 
-        List<Service> servicesOfRoom3 = new ArrayList<>();
-        servicesOfRoom3.add(new Service(4, ServiceType.TEMPERATURE, "24", room3));
-        servicesOfRoom3.add(new Service(5, ServiceType.LIGHTING, "5", room3));
-        servicesOfRoom3.add(new Service(6, ServiceType.MUSIC, "5", room3));
-        servicesOfRoom3.add(new Service(7, ServiceType.CURTAINS, "closed", room3));
+        List<AutomationService> servicesOfRoom3 = new ArrayList<>();
+        servicesOfRoom3.add(new AutomationService(4, ServiceType.TEMPERATURE, "24", room3));
+        servicesOfRoom3.add(new AutomationService(5, ServiceType.LIGHTING, "5", room3));
+        servicesOfRoom3.add(new AutomationService(6, ServiceType.MUSIC, "5", room3));
+        servicesOfRoom3.add(new AutomationService(7, ServiceType.CURTAINS, "closed", room3));
         room3.setServices(servicesOfRoom3);
 
         room3.setDimension(new Dimension(3, 300, 250, room3));
@@ -102,11 +88,11 @@ public class StarterData {
         room4.setName("Keuken");
         room4.setDescription("Deze keuken is volledig ingericht met koelkast, twee ovens, microgofloven, vaatwasser en de nodige kasten.");
 
-        List<Service> servicesOfRoom4 = new ArrayList<>();
-        servicesOfRoom4.add(new Service(8, ServiceType.TEMPERATURE, "10", room4));
-        servicesOfRoom4.add(new Service(9, ServiceType.LIGHTING, "13", room4));
-        servicesOfRoom4.add(new Service(10, ServiceType.MUSIC, "10", room4));
-        servicesOfRoom4.add(new Service(11, ServiceType.CURTAINS, "open", room4));
+        List<AutomationService> servicesOfRoom4 = new ArrayList<>();
+        servicesOfRoom4.add(new AutomationService(8, ServiceType.TEMPERATURE, "10", room4));
+        servicesOfRoom4.add(new AutomationService(9, ServiceType.LIGHTING, "13", room4));
+        servicesOfRoom4.add(new AutomationService(10, ServiceType.MUSIC, "10", room4));
+        servicesOfRoom4.add(new AutomationService(11, ServiceType.CURTAINS, "open", room4));
         room4.setServices(servicesOfRoom4);
 
         room4.setDimension(new Dimension(4, 150, 155, room4));
@@ -119,9 +105,9 @@ public class StarterData {
         room5.setName("Gang");
         room5.setDescription("Dit is de gang waar de heer en vrouw des huizes hun eerste indruk kunnen maken op de gasten.");
 
-        List<Service> servicesOfRoom5 = new ArrayList<>();
-        servicesOfRoom5.add(new Service(12, ServiceType.TEMPERATURE, "5", room5));
-        servicesOfRoom5.add(new Service(13, ServiceType.LIGHTING, "11", room5));
+        List<AutomationService> servicesOfRoom5 = new ArrayList<>();
+        servicesOfRoom5.add(new AutomationService(12, ServiceType.TEMPERATURE, "5", room5));
+        servicesOfRoom5.add(new AutomationService(13, ServiceType.LIGHTING, "11", room5));
         room5.setServices(servicesOfRoom5);
 
         room5.setDimension(new Dimension(5, 220, 155, room5));
@@ -134,9 +120,9 @@ public class StarterData {
         room6.setName("Gasten toilet");
         room6.setDescription("Deze toilet mag er best wezen. Steeds fris en schoon!");
 
-        List<Service> servicesOfRoom6 = new ArrayList<>();
-        servicesOfRoom6.add(new Service(14, ServiceType.TEMPERATURE, "12", room6));
-        servicesOfRoom6.add(new Service(15, ServiceType.LIGHTING, "8", room6));
+        List<AutomationService> servicesOfRoom6 = new ArrayList<>();
+        servicesOfRoom6.add(new AutomationService(14, ServiceType.TEMPERATURE, "12", room6));
+        servicesOfRoom6.add(new AutomationService(15, ServiceType.LIGHTING, "8", room6));
         room6.setServices(servicesOfRoom6);
 
         room6.setDimension(new Dimension(6, 180, 155, room6));
@@ -163,11 +149,11 @@ public class StarterData {
         room7.setName("Slaapkamer 1");
         room7.setDescription("Dit is de slaapkamer van de heer en vrouw des huizes. Rustig en ruim gelegen.");
 
-        List<Service> servicesOfRoom7 = new ArrayList<>();
-        servicesOfRoom7.add(new Service(16, ServiceType.TEMPERATURE, "14", room7));
-        servicesOfRoom7.add(new Service(17, ServiceType.LIGHTING, "13", room7));
-        servicesOfRoom7.add(new Service(18, ServiceType.MUSIC, "9", room7));
-        servicesOfRoom7.add(new Service(19, ServiceType.CURTAINS, "open", room7));
+        List<AutomationService> servicesOfRoom7 = new ArrayList<>();
+        servicesOfRoom7.add(new AutomationService(16, ServiceType.TEMPERATURE, "14", room7));
+        servicesOfRoom7.add(new AutomationService(17, ServiceType.LIGHTING, "13", room7));
+        servicesOfRoom7.add(new AutomationService(18, ServiceType.MUSIC, "9", room7));
+        servicesOfRoom7.add(new AutomationService(19, ServiceType.CURTAINS, "open", room7));
         room7.setServices(servicesOfRoom7);
 
         room7.setDimension(new Dimension(7, 300, 300, room7));
@@ -180,11 +166,11 @@ public class StarterData {
         room8.setName("Slaapkamer 2");
         room8.setDescription("Dit is de slaapkamer van de dochter. Je verveelt je hier nooit. Teveel speelgoed om op te sommen...");
 
-        List<Service> servicesOfRoom8 = new ArrayList<>();
-        servicesOfRoom8.add(new Service(20, ServiceType.TEMPERATURE, "4", room8));
-        servicesOfRoom8.add(new Service(21, ServiceType.LIGHTING, "3", room8));
-        servicesOfRoom8.add(new Service(22, ServiceType.MUSIC, "6", room8));
-        servicesOfRoom8.add(new Service(23, ServiceType.CURTAINS, "closed", room8));
+        List<AutomationService> servicesOfRoom8 = new ArrayList<>();
+        servicesOfRoom8.add(new AutomationService(20, ServiceType.TEMPERATURE, "4", room8));
+        servicesOfRoom8.add(new AutomationService(21, ServiceType.LIGHTING, "3", room8));
+        servicesOfRoom8.add(new AutomationService(22, ServiceType.MUSIC, "6", room8));
+        servicesOfRoom8.add(new AutomationService(23, ServiceType.CURTAINS, "closed", room8));
         room8.setServices(servicesOfRoom8);
 
         room8.setDimension(new Dimension(8, 220, 200, room8));
@@ -197,11 +183,11 @@ public class StarterData {
         room9.setName("Badkamer");
         room9.setDescription("Deze badkamer bevat een douche, bad en twee lavabo's.");
 
-        List<Service> servicesOfRoom9 = new ArrayList<>();
-        servicesOfRoom9.add(new Service(24, ServiceType.TEMPERATURE, "4", room9));
-        servicesOfRoom9.add(new Service(25, ServiceType.LIGHTING, "0", room9));
-        servicesOfRoom9.add(new Service(26, ServiceType.MUSIC, "10", room9));
-        servicesOfRoom9.add(new Service(27, ServiceType.CURTAINS, "open", room9));
+        List<AutomationService> servicesOfRoom9 = new ArrayList<>();
+        servicesOfRoom9.add(new AutomationService(24, ServiceType.TEMPERATURE, "4", room9));
+        servicesOfRoom9.add(new AutomationService(25, ServiceType.LIGHTING, "0", room9));
+        servicesOfRoom9.add(new AutomationService(26, ServiceType.MUSIC, "10", room9));
+        servicesOfRoom9.add(new AutomationService(27, ServiceType.CURTAINS, "open", room9));
         room9.setServices(servicesOfRoom9);
 
         room9.setDimension(new Dimension(9, 160, 155, room9));
@@ -214,9 +200,9 @@ public class StarterData {
         room10.setName("Toilet");
         room10.setDescription("Een toilet vol met interessante lectuur om de stoelgang te bevorderen.");
 
-        List<Service> servicesOfRoom10 = new ArrayList<>();
-        servicesOfRoom10.add(new Service(28, ServiceType.TEMPERATURE, "10", room10));
-        servicesOfRoom10.add(new Service(29, ServiceType.LIGHTING, "8", room10));
+        List<AutomationService> servicesOfRoom10 = new ArrayList<>();
+        servicesOfRoom10.add(new AutomationService(28, ServiceType.TEMPERATURE, "10", room10));
+        servicesOfRoom10.add(new AutomationService(29, ServiceType.LIGHTING, "8", room10));
         room10.setServices(servicesOfRoom10);
 
         room10.setDimension(new Dimension(10, 150, 155, room10));
@@ -243,9 +229,9 @@ public class StarterData {
         room11.setName("Zolder ruimte");
         room11.setDescription("Deze zolder is de speelruimte voor de kinderen. Hier bouwen ze kampen en spelen ze toneel.");
 
-        List<Service> servicesOfRoom11 = new ArrayList<>();
-        servicesOfRoom11.add(new Service(30, ServiceType.LIGHTING, "5", room11));
-        servicesOfRoom11.add(new Service(31, ServiceType.MUSIC, "2", room11));
+        List<AutomationService> servicesOfRoom11 = new ArrayList<>();
+        servicesOfRoom11.add(new AutomationService(30, ServiceType.LIGHTING, "5", room11));
+        servicesOfRoom11.add(new AutomationService(31, ServiceType.MUSIC, "2", room11));
         room11.setServices(servicesOfRoom11);
 
         room11.setDimension(new Dimension(11, 400, 200, room11));
@@ -257,7 +243,7 @@ public class StarterData {
         Schema schema1 = new Schema();
         schema1.setId(1);
         schema1.setRoom(room4);
-        schema1.setService(new Service(32, ServiceType.CURTAINS, "open", schema1));
+        schema1.setService(new AutomationService(32, ServiceType.CURTAINS, "open", schema1));
         schema1.setStart("14:00");
         schema1.setEnd("09:00");
 
@@ -267,7 +253,7 @@ public class StarterData {
         Schema schema2 = new Schema();
         schema2.setId(2);
         schema2.setRoom(room1);
-        schema2.setService(new Service(33, ServiceType.LIGHTING, "0", schema2));
+        schema2.setService(new AutomationService(33, ServiceType.LIGHTING, "0", schema2));
         schema2.setStart("14:00");
         schema2.setEnd("10:00");
 
@@ -277,7 +263,7 @@ public class StarterData {
         Schema schema3 = new Schema();
         schema3.setId(3);
         schema3.setRoom(room4);
-        schema3.setService(new Service(34, ServiceType.TEMPERATURE, "11", schema3));
+        schema3.setService(new AutomationService(34, ServiceType.TEMPERATURE, "11", schema3));
         schema3.setStart("08:00");
         schema3.setEnd("11:00");
 
@@ -286,7 +272,7 @@ public class StarterData {
         Schema schema4 = new Schema();
         schema4.setId(4);
         schema4.setRoom(room4);
-        schema4.setService(new Service(34, ServiceType.CURTAINS, "closed", schema4));
+        schema4.setService(new AutomationService(34, ServiceType.CURTAINS, "closed", schema4));
         schema4.setStart("14:00");
         schema4.setEnd("18:00");
 
@@ -297,26 +283,34 @@ public class StarterData {
 
 
         // Saving to the database
-        floorRepository.save(basement);
-        floorRepository.save(groundFloor);
-        floorRepository.save(firstFloor);
-        floorRepository.save(attic);
 
-        roomRepository.save(room1);
-        roomRepository.save(room2);
-        roomRepository.save(room3);
-        roomRepository.save(room4);
-        roomRepository.save(room5);
-        roomRepository.save(room6);
-        roomRepository.save(room7);
-        roomRepository.save(room8);
-        roomRepository.save(room9);
-        roomRepository.save(room10);
-        roomRepository.save(room11);
 
-        schemaRepository.save(schema1);
-        schemaRepository.save(schema2);
-        schemaRepository.save(schema3);
-        schemaRepository.save(schema4);
+        entityManager.persist(basement);
+        entityManager.persist(groundFloor);
+        entityManager.persist(firstFloor);
+        entityManager.persist(attic);
+
+        entityManager.persist(room1);
+        entityManager.persist(room2);
+        entityManager.persist(room3);
+        entityManager.persist(room4);
+        entityManager.persist(room5);
+        entityManager.persist(room6);
+        entityManager.persist(room7);
+        entityManager.persist(room8);
+        entityManager.persist(room9);
+        entityManager.persist(room10);
+        entityManager.persist(room11);
+
+        entityManager.persist(schema1);
+        entityManager.persist(schema2);
+        entityManager.persist(schema3);
+        entityManager.persist(schema4);
+    }
+
+    public void createUser(UserRepository userRepository){
+        // User
+        User user = new User(1, "user", "user", true, "USER");
+        userRepository.save(user);
     }
 }

@@ -1,19 +1,19 @@
 package be.jorisgulinck.domoticaspringbackend.domain.models.building;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "positions")
 public class Position {
 
     @Id
     @Column(name = "position_id")
     private int id;
 
+    @Column(name = "top")
     private int top;
 
+    @Column(name = "lef")
     private int left;
 
     @OneToOne

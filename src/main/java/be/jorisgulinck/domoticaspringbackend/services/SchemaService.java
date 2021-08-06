@@ -13,8 +13,12 @@ import java.util.List;
 @Transactional
 public class SchemaService implements CrudService<Schema> {
 
+    private final SchemaRepository schemaRepository;
+
     @Autowired
-    SchemaRepository schemaRepository;
+    public SchemaService(SchemaRepository schemaRepository) {
+        this.schemaRepository = schemaRepository;
+    }
 
     @Override
     public Schema save(Schema entity) {
@@ -34,6 +38,8 @@ public class SchemaService implements CrudService<Schema> {
 
     @Override
     public void delete(int id) {
-        schemaRepository.delete(getById(id));
+        Schema schema = schemaRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+        schemaRepository.delete(schema);
     }
 }

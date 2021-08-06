@@ -1,24 +1,26 @@
 package be.jorisgulinck.domoticaspringbackend.domain.models.building;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.Service;
+import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationService;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "rooms")
 public class Room {
     @Id
     @Column(name = "room_id")
     private int id;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "description")
     private String description;
 
     @OneToMany(mappedBy = "room")
-    private List<Service> services;
+    private List<AutomationService> automationServices;
 
     @OneToOne
     private Dimension dimension;
@@ -35,11 +37,11 @@ public class Room {
     public Room() {
     }
 
-    public Room(int id, String name, String description, List<Service> services, Dimension dimension, Position position, Floor floor, List<Schema> schemes) {
+    public Room(int id, String name, String description, List<AutomationService> automationServices, Dimension dimension, Position position, Floor floor, List<Schema> schemes) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.services = services;
+        this.automationServices = automationServices;
         this.dimension = dimension;
         this.position = position;
         this.floor = floor;
@@ -70,12 +72,12 @@ public class Room {
         this.description = description;
     }
 
-    public List<Service> getServices() {
-        return services;
+    public List<AutomationService> getServices() {
+        return automationServices;
     }
 
-    public void setServices(List<Service> services) {
-        this.services = services;
+    public void setServices(List<AutomationService> automationServices) {
+        this.automationServices = automationServices;
     }
 
     public Dimension getDimension() {

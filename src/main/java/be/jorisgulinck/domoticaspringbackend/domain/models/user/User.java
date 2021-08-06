@@ -3,14 +3,22 @@ package be.jorisgulinck.domoticaspringbackend.domain.models.user;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private int id;
+
+    @Column(name = "user_name", nullable = false)
     private String userName;
+
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "active", nullable = false)
     private boolean active;
+
+    @Column(name = "roles", nullable = false)
     private String roles;
 
     public User() {

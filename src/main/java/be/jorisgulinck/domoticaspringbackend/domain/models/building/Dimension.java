@@ -1,18 +1,21 @@
 package be.jorisgulinck.domoticaspringbackend.domain.models.building;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "dimensions")
 public class Dimension {
 
     @Id
     @Column(name = "dimension_id")
     private int id;
+
+    @Column(name = "width")
     private int width;
+
+    @Column(name = "height")
     private int height;
+
     @OneToOne
     private Room room;
 

@@ -13,10 +13,11 @@ import java.util.List;
 @Transactional
 public class FloorService implements CrudService<Floor> {
 
-    @Autowired
-    private FloorRepository floorRepository;
+    private final FloorRepository floorRepository;
 
-    public FloorService() {
+    @Autowired
+    public FloorService(FloorRepository floorRepository) {
+        this.floorRepository = floorRepository;
     }
 
     @Override
@@ -37,6 +38,8 @@ public class FloorService implements CrudService<Floor> {
 
     @Override
     public void delete(int id) {
-        floorRepository.delete(getById(id));
+        Floor floor = floorRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+        floorRepository.delete(floor);
     }
 }

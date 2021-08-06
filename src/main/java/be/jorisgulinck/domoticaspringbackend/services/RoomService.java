@@ -13,8 +13,12 @@ import java.util.List;
 @Transactional
 public class RoomService implements CrudService<Room>{
 
+    private final RoomRepository roomRepository;
+
     @Autowired
-    private RoomRepository roomRepository;
+    public RoomService(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
+    }
 
     @Override
     public Room save(Room entity) {
@@ -34,6 +38,8 @@ public class RoomService implements CrudService<Room>{
 
     @Override
     public void delete(int id) {
-        roomRepository.delete(getById(id));
+        Room room = roomRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+        roomRepository.delete(room);
     }
 }
