@@ -10,10 +10,10 @@ public class Position {
     @Column(name = "position_id")
     private int id;
 
-    @Column(name = "top")
+    @Column(name = "top_position")
     private int top;
 
-    @Column(name = "lef")
+    @Column(name = "left_position")
     private int left;
 
     @OneToOne

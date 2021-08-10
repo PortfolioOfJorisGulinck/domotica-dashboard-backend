@@ -30,7 +30,7 @@ public class FloorController {
 
     @PostMapping
     public ResponseEntity<FloorDto> addFloor(@RequestBody FloorDto floorDto) {
-        floorService.save(dtoMapper.floorDtoToFloor(floorDto));
+        floorService.save(dtoMapper.DtoToFloor(floorDto));
         logger.debug("Added:: " + floorDto);
         return new ResponseEntity<>(floorDto, HttpStatus.CREATED);
     }
@@ -42,7 +42,7 @@ public class FloorController {
             logger.debug("Floor with id " + floorDto.getId() + " does not exists");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            floorService.save(dtoMapper.floorDtoToFloor(floorDto));
+            floorService.save(dtoMapper.DtoToFloor(floorDto));
             return new ResponseEntity<>(HttpStatus.OK);
         }
     }

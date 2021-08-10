@@ -10,10 +10,10 @@ public class Floor {
     @Column(name = "floor_id")
     private int id;
 
-    @Column(name = "name" , nullable = false)
+    @Column(name = "floor_name")
     private String name;
 
-    @Column(name = "image")
+    @Column(name = "floor_image")
     private String image;
 
     @OneToMany(mappedBy = "floor")

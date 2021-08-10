@@ -13,10 +13,10 @@ public class Schema {
     @Column(name = "schema_id")
     private int id;
 
-    @Column(name = "start")
+    @Column(name = "schema_start")
     private String start;
 
-    @Column(name = "end")
+    @Column(name = "schema_end")
     private String end;
 
     @OneToOne

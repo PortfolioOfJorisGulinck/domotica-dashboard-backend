@@ -13,10 +13,10 @@ public class Room {
     @Column(name = "room_id")
     private int id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "room_name")
     private String name;
 
-    @Column(name = "description")
+    @Column(name = "room_description")
     private String description;
 
     @OneToMany(mappedBy = "room")

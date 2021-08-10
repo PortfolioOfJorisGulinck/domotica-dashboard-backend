@@ -7,18 +7,18 @@ import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "services")
+@Table(name = "automation_services")
 public class AutomationService {
 
     @Id
-    @Column(name = "service_id")
+    @Column(name = "automation_service_id")
     private int id;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "service_type")
     private ServiceType serviceType;
 
-    @Column(name = "value")
+    @Column(name = "service_value")
     private String value;
 
     @ManyToOne
