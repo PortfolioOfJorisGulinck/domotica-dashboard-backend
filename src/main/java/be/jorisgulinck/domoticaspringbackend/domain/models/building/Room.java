@@ -37,6 +37,10 @@ public class Room {
     public Room() {
     }
 
+    public Room(int id) {
+        this.id = id;
+    }
+
     public Room(int id, String name, String description, List<AutomationService> automationServices, Dimension dimension, Position position, Floor floor, List<Schema> schemes) {
         this.id = id;
         this.name = name;
