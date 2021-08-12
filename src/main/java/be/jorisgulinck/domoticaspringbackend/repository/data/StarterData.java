@@ -8,7 +8,6 @@ import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
 import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationService;
 import be.jorisgulinck.domoticaspringbackend.domain.models.service.ServiceType;
 import be.jorisgulinck.domoticaspringbackend.domain.models.user.User;
-import be.jorisgulinck.domoticaspringbackend.repository.UserRepository;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
@@ -339,7 +338,13 @@ public class StarterData {
         room4.setSchemes(schemesOfRoom4);
 
 
+        // Users
+        User user = new User(1, "user", "user", true, "USER");
+
+
         // Saving to the database
+        entityManager.persist(user);
+
         entityManager.persist(basement);
         entityManager.persist(groundFloor);
         entityManager.persist(firstFloor);
@@ -359,80 +364,72 @@ public class StarterData {
         entityManager.persist(room11);
 
 
-        entityManager.persist(automationService1);
-        entityManager.persist(automationService2);
-        entityManager.persist(automationService3);
-        entityManager.persist(automationService4);
-        entityManager.persist(automationService5);
-        entityManager.persist(automationService6);
-        entityManager.persist(automationService7);
-        entityManager.persist(automationService8);
-        entityManager.persist(automationService9);
-        entityManager.persist(automationService10);
-        entityManager.persist(automationService11);
-        entityManager.persist(automationService12);
-        entityManager.persist(automationService13);
-        entityManager.persist(automationService14);
-        entityManager.persist(automationService15);
-        entityManager.persist(automationService16);
-        entityManager.persist(automationService17);
-        entityManager.persist(automationService18);
-        entityManager.persist(automationService19);
-        entityManager.persist(automationService20);
-        entityManager.persist(automationService21);
-        entityManager.persist(automationService22);
-        entityManager.persist(automationService23);
-        entityManager.persist(automationService24);
-        entityManager.persist(automationService25);
-        entityManager.persist(automationService26);
-        entityManager.persist(automationService27);
-        entityManager.persist(automationService28);
-        entityManager.persist(automationService29);
-        entityManager.persist(automationService30);
-        entityManager.persist(automationService31);
-        entityManager.persist(automationService32);
-        entityManager.persist(automationService33);
-        entityManager.persist(automationService34);
-        entityManager.persist(automationService35);
+        entityManager.merge(automationService1);
+        entityManager.merge(automationService2);
+        entityManager.merge(automationService3);
+        entityManager.merge(automationService4);
+        entityManager.merge(automationService5);
+        entityManager.merge(automationService6);
+        entityManager.merge(automationService7);
+        entityManager.merge(automationService8);
+        entityManager.merge(automationService9);
+        entityManager.merge(automationService10);
+        entityManager.merge(automationService11);
+        entityManager.merge(automationService12);
+        entityManager.merge(automationService13);
+        entityManager.merge(automationService14);
+        entityManager.merge(automationService15);
+        entityManager.merge(automationService16);
+        entityManager.merge(automationService17);
+        entityManager.merge(automationService18);
+        entityManager.merge(automationService19);
+        entityManager.merge(automationService20);
+        entityManager.merge(automationService21);
+        entityManager.merge(automationService22);
+        entityManager.merge(automationService23);
+        entityManager.merge(automationService24);
+        entityManager.merge(automationService25);
+        entityManager.merge(automationService26);
+        entityManager.merge(automationService27);
+        entityManager.merge(automationService28);
+        entityManager.merge(automationService29);
+        entityManager.merge(automationService30);
+        entityManager.merge(automationService31);
+        entityManager.merge(automationService32);
+        entityManager.merge(automationService33);
+        entityManager.merge(automationService34);
+        entityManager.merge(automationService35);
 
 
-        entityManager.persist(dimension1);
-        entityManager.persist(dimension2);
-        entityManager.persist(dimension3);
-        entityManager.persist(dimension4);
-        entityManager.persist(dimension5);
-        entityManager.persist(dimension6);
-        entityManager.persist(dimension7);
-        entityManager.persist(dimension8);
-        entityManager.persist(dimension9);
-        entityManager.persist(dimension10);
-        entityManager.persist(dimension11);
+        entityManager.merge(dimension1);
+        entityManager.merge(dimension2);
+        entityManager.merge(dimension3);
+        entityManager.merge(dimension4);
+        entityManager.merge(dimension5);
+        entityManager.merge(dimension6);
+        entityManager.merge(dimension7);
+        entityManager.merge(dimension8);
+        entityManager.merge(dimension9);
+        entityManager.merge(dimension10);
+        entityManager.merge(dimension11);
 
 
-        entityManager.persist(position1);
-        entityManager.persist(position2);
-        entityManager.persist(position3);
-        entityManager.persist(position4);
-        entityManager.persist(position5);
-        entityManager.persist(position6);
-        entityManager.persist(position7);
-        entityManager.persist(position8);
-        entityManager.persist(position9);
-        entityManager.persist(position10);
-        entityManager.persist(position11);
+        entityManager.merge(position1);
+        entityManager.merge(position2);
+        entityManager.merge(position3);
+        entityManager.merge(position4);
+        entityManager.merge(position5);
+        entityManager.merge(position6);
+        entityManager.merge(position7);
+        entityManager.merge(position8);
+        entityManager.merge(position9);
+        entityManager.merge(position10);
+        entityManager.merge(position11);
 
-
-        entityManager.persist(schema1);
-        entityManager.persist(schema2);
-        entityManager.persist(schema3);
-        entityManager.persist(schema4);
-
-         */
-    }
-
-    public void createUser(UserRepository userRepository){
-        // User
-        User user = new User(1, "user", "user", true, "USER");
-        userRepository.save(user);
+        entityManager.merge(schema1);
+        entityManager.merge(schema2);
+        entityManager.merge(schema3);
+        entityManager.merge(schema4);
+    */
     }
 }

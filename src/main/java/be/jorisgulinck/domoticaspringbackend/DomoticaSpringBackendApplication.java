@@ -1,8 +1,7 @@
 package be.jorisgulinck.domoticaspringbackend;
 
-import be.jorisgulinck.domoticaspringbackend.repository.UserRepository;
 import be.jorisgulinck.domoticaspringbackend.repository.data.StarterData;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -17,15 +16,10 @@ import javax.persistence.PersistenceUnit;
 @EnableJpaRepositories(basePackages = "be.jorisgulinck.domoticaspringbackend.repository")
 public class DomoticaSpringBackendApplication {
 
+    final static Logger logger = Logger.getLogger(DomoticaSpringBackendApplication.class);
+
     @PersistenceUnit
     private EntityManagerFactory emf;
-
-    UserRepository userRepository;
-
-    @Autowired
-    public DomoticaSpringBackendApplication(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(DomoticaSpringBackendApplication.class, args);
@@ -36,10 +30,14 @@ public class DomoticaSpringBackendApplication {
         EntityManager entityManager = emf.createEntityManager();
         StarterData starterData = new StarterData();
         EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        starterData.createUser(userRepository);
-        starterData.fillDatabase(entityManager);
-        transaction.commit();
-        entityManager.close();
+        try {
+            transaction.begin();
+            starterData.fillDatabase(entityManager);
+            transaction.commit();
+        } catch (Exception e) {
+            logger.debug(e.getMessage());
+        } finally {
+            entityManager.close();
+        }
     }
 }

@@ -19,8 +19,8 @@ public class FloorController {
 
     final static Logger logger = Logger.getLogger(FloorController.class);
 
-    FloorService floorService;
-    DtoMapper dtoMapper;
+    private final FloorService floorService;
+    private final DtoMapper dtoMapper;
 
     @Autowired
     public FloorController(FloorService floorService, DtoMapper dtoMapper) {
@@ -28,9 +28,10 @@ public class FloorController {
         this.dtoMapper = dtoMapper;
     }
 
+    //@AuthenticationPrincipal CustomUserDetails userDetails
     @PostMapping
     public ResponseEntity<FloorDto> addFloor(@RequestBody FloorDto floorDto) {
-        floorService.save(dtoMapper.DtoToFloor(floorDto));
+        floorService.save(dtoMapper.dtoToFloor(floorDto));
         logger.debug("Added:: " + floorDto);
         return new ResponseEntity<>(floorDto, HttpStatus.CREATED);
     }
@@ -42,7 +43,7 @@ public class FloorController {
             logger.debug("Floor with id " + floorDto.getId() + " does not exists");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            floorService.save(dtoMapper.DtoToFloor(floorDto));
+            floorService.save(dtoMapper.dtoToFloor(floorDto));
             return new ResponseEntity<>(HttpStatus.OK);
         }
     }

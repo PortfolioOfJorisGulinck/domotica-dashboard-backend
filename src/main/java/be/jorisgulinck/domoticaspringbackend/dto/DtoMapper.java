@@ -5,6 +5,7 @@ import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
 import be.jorisgulinck.domoticaspringbackend.services.RoomService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,8 +24,6 @@ public class DtoMapper {
         this.roomService = roomService;
     }
 
-    // TODO implementing ModelMapper and finishing the methods of this class.
-
     public FloorDto floorToDto(Floor floor) {
         FloorDto floorDto = new FloorDto();
         floorDto.setId(floor.getId());
@@ -38,7 +37,7 @@ public class DtoMapper {
         return floorDto;
     }
 
-    public Floor DtoToFloor(FloorDto floorDto) {
+    public Floor dtoToFloor(FloorDto floorDto) {
         Floor floor = new Floor();
         floor.setId(floorDto.getId());
         floor.setName(floorDto.getName());
@@ -63,7 +62,7 @@ public class DtoMapper {
         return null;
     }
 
-    public Room roomDtoToRoom(RoomDto roomDto) {
+    public Room dtoToRoom(RoomDto roomDto) {
         return null;
     }
 
@@ -71,7 +70,7 @@ public class DtoMapper {
         return null;
     }
 
-    public Schema schemaDtoToSchema(SchemaDto schemaDto) {
+    public Schema dtoToSchema(SchemaDto schemaDto) {
         return null;
     }
 
