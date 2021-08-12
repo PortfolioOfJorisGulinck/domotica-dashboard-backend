@@ -10,10 +10,10 @@ public class Dimension {
     @Column(name = "dimension_id")
     private int id;
 
-    @Column(name = "width")
+    @Column(name = "dimension_width")
     private int width;
 
-    @Column(name = "height")
+    @Column(name = "dimension_height")
     private int height;
 
     @OneToOne

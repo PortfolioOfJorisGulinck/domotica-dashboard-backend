@@ -72,11 +72,11 @@ public class Room {
         this.description = description;
     }
 
-    public List<AutomationService> getServices() {
+    public List<AutomationService> getAutomationServices() {
         return automationServices;
     }
 
-    public void setServices(List<AutomationService> automationServices) {
+    public void setAutomationServices(List<AutomationService> automationServices) {
         this.automationServices = automationServices;
     }
 

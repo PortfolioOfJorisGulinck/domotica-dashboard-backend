@@ -34,7 +34,7 @@ public class StarterData {
         servicesOfRoom1.add(automationService1);
         AutomationService automationService2 = new AutomationService(2, ServiceType.MUSIC, "6", room1);
         servicesOfRoom1.add(automationService2);
-        room1.setServices(servicesOfRoom1);
+        room1.setAutomationServices(servicesOfRoom1);
 
         Dimension dimension1 = new Dimension(1, 200, 200, room1);
         room1.setDimension(dimension1);
@@ -51,7 +51,7 @@ public class StarterData {
         List<AutomationService> servicesOfRoom2 = new ArrayList<>();
         AutomationService automationService3 = new AutomationService(3, ServiceType.LIGHTING, "10", room2);
         servicesOfRoom2.add(automationService3);
-        room2.setServices(servicesOfRoom2);
+        room2.setAutomationServices(servicesOfRoom2);
 
         Dimension dimension2 = new Dimension(2, 300, 300, room2);
         room2.setDimension(dimension2);
@@ -86,7 +86,7 @@ public class StarterData {
         servicesOfRoom3.add(automationService6);
         AutomationService automationService7 = new AutomationService(7, ServiceType.CURTAINS, "closed", room3);
         servicesOfRoom3.add(automationService7);
-        room3.setServices(servicesOfRoom3);
+        room3.setAutomationServices(servicesOfRoom3);
 
         Dimension dimension3 = new Dimension(3, 300, 250, room3);
         room3.setDimension(dimension3);
@@ -109,7 +109,7 @@ public class StarterData {
         servicesOfRoom4.add(automationService10);
         AutomationService automationService11 = new AutomationService(11, ServiceType.CURTAINS, "open", room4);
         servicesOfRoom4.add(automationService11);
-        room4.setServices(servicesOfRoom4);
+        room4.setAutomationServices(servicesOfRoom4);
 
         Dimension dimension4 = new Dimension(4, 150, 155, room4);
         room4.setDimension(dimension4);
@@ -128,7 +128,7 @@ public class StarterData {
         servicesOfRoom5.add(automationService12);
         AutomationService automationService13 = new AutomationService(13, ServiceType.LIGHTING, "11", room5);
         servicesOfRoom5.add(automationService13);
-        room5.setServices(servicesOfRoom5);
+        room5.setAutomationServices(servicesOfRoom5);
 
         Dimension dimension5 = new Dimension(5, 220, 155, room5);
         room5.setDimension(dimension5);
@@ -147,7 +147,7 @@ public class StarterData {
         servicesOfRoom6.add(automationService14);
         AutomationService automationService15 = new AutomationService(15, ServiceType.LIGHTING, "8", room6);
         servicesOfRoom6.add(automationService15);
-        room6.setServices(servicesOfRoom6);
+        room6.setAutomationServices(servicesOfRoom6);
 
         Dimension dimension6 = new Dimension(6, 180, 155, room6);
         room6.setDimension(dimension6);
@@ -184,7 +184,7 @@ public class StarterData {
         servicesOfRoom7.add(automationService18);
         AutomationService automationService19 = new AutomationService(19, ServiceType.CURTAINS, "open", room7);
         servicesOfRoom7.add(automationService19);
-        room7.setServices(servicesOfRoom7);
+        room7.setAutomationServices(servicesOfRoom7);
 
         Dimension dimension7 = new Dimension(7, 300, 300, room7);
         room7.setDimension(dimension7);
@@ -207,7 +207,7 @@ public class StarterData {
         servicesOfRoom8.add(automationService22);
         AutomationService automationService23 = new AutomationService(23, ServiceType.CURTAINS, "closed", room8);
         servicesOfRoom8.add(automationService23);
-        room8.setServices(servicesOfRoom8);
+        room8.setAutomationServices(servicesOfRoom8);
 
         Dimension dimension8 = new Dimension(8, 220, 200, room8);
         room8.setDimension(dimension8);
@@ -230,7 +230,7 @@ public class StarterData {
         servicesOfRoom9.add(automationService26);
         AutomationService automationService27 = new AutomationService(27, ServiceType.CURTAINS, "open", room9);
         servicesOfRoom9.add(automationService27);
-        room9.setServices(servicesOfRoom9);
+        room9.setAutomationServices(servicesOfRoom9);
 
         Dimension dimension9 = new Dimension(9, 160, 155, room9);
         room9.setDimension(dimension9);
@@ -249,7 +249,7 @@ public class StarterData {
         servicesOfRoom10.add(automationService28);
         AutomationService automationService29 = new AutomationService(29, ServiceType.LIGHTING, "8", room10);
         servicesOfRoom10.add(automationService29);
-        room10.setServices(servicesOfRoom10);
+        room10.setAutomationServices(servicesOfRoom10);
 
         Dimension dimension10 = new Dimension(10, 150, 155, room10);
         room10.setDimension(dimension10);
@@ -282,7 +282,7 @@ public class StarterData {
         servicesOfRoom11.add(automationService30);
         AutomationService automationService31 = new AutomationService(31, ServiceType.MUSIC, "2", room11);
         servicesOfRoom11.add(automationService31);
-        room11.setServices(servicesOfRoom11);
+        room11.setAutomationServices(servicesOfRoom11);
 
         Dimension dimension11 = new Dimension(11, 400, 200, room11);
         room11.setDimension(dimension11);
@@ -350,8 +350,9 @@ public class StarterData {
         entityManager.persist(firstFloor);
         entityManager.persist(attic);
 
-        /*
-        entityManager.persist(room1);
+
+/*
+        entityManager.merge(room1);
         entityManager.persist(room2);
         entityManager.persist(room3);
         entityManager.persist(room4);
@@ -362,7 +363,6 @@ public class StarterData {
         entityManager.persist(room9);
         entityManager.persist(room10);
         entityManager.persist(room11);
-
 
         entityManager.merge(automationService1);
         entityManager.merge(automationService2);

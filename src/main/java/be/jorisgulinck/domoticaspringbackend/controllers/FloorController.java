@@ -62,7 +62,7 @@ public class FloorController {
     }
 
     @GetMapping(value = "{id}")
-    public ResponseEntity<FloorDto> getFloor(@PathVariable("id") int id) {
+    public ResponseEntity<FloorDto> getFloor(@PathVariable int id) {
         Floor floor = floorService.getById(id);
         if (floor == null) {
             logger.debug("Floor with id " + id + " does not exists");
@@ -73,7 +73,7 @@ public class FloorController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> deleteFloor(@PathVariable("id") int id) {
+    public ResponseEntity<Void> deleteFloor(@PathVariable int id) {
         Floor floor = floorService.getById(id);
         if (floor == null) {
             logger.debug("Floor with id " + id + " does not exists");
