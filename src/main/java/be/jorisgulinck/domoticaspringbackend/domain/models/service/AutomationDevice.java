@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "automation_services")
-public class AutomationService {
+public class AutomationDevice {
 
     @Id
     @Column(name = "automation_service_id")
@@ -24,24 +24,20 @@ public class AutomationService {
     @ManyToOne
     private Room room;
 
-    @OneToOne
-    private Schema schema;
-
-    public AutomationService() {
+    public AutomationDevice() {
     }
 
-    public AutomationService(int id, ServiceType serviceType, String value, Room room) {
+    public AutomationDevice(int id, ServiceType serviceType, String value, Room room) {
         this.id = id;
         this.serviceType = serviceType;
         this.value = value;
         this.room = room;
     }
 
-    public AutomationService(int id, ServiceType serviceType, String value, Schema schema) {
+    public AutomationDevice(int id, ServiceType serviceType, String value) {
         this.id = id;
         this.serviceType = serviceType;
         this.value = value;
-        this.schema = schema;
     }
 
     public int getId() {
@@ -74,13 +70,5 @@ public class AutomationService {
 
     public void setRoom(Room room) {
         this.room = room;
-    }
-
-    public Schema getSchema() {
-        return schema;
-    }
-
-    public void setSchema(Schema schema) {
-        this.schema = schema;
     }
 }

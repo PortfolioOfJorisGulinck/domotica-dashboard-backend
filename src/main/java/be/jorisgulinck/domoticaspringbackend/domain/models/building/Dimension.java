@@ -16,17 +16,13 @@ public class Dimension {
     @Column(name = "dimension_height")
     private int height;
 
-    @OneToOne
-    private Room room;
-
     public Dimension() {
     }
 
-    public Dimension(int id, int width, int height, Room room) {
+    public Dimension(int id, int width, int height) {
         this.id = id;
         this.width = width;
         this.height = height;
-        this.room = room;
     }
 
     public int getId() {
@@ -51,13 +47,5 @@ public class Dimension {
 
     public void setHeight(int height) {
         this.height = height;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
     }
 }

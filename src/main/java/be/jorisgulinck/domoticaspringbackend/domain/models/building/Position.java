@@ -16,17 +16,13 @@ public class Position {
     @Column(name = "left_position")
     private int left;
 
-    @OneToOne
-    private Room room;
-
     public Position() {
     }
 
-    public Position(int id, int top, int left, Room room) {
+    public Position(int id, int top, int left) {
         this.id = id;
         this.top = top;
         this.left = left;
-        this.room = room;
     }
 
     public int getId() {
@@ -51,13 +47,5 @@ public class Position {
 
     public void setLeft(int left) {
         this.left = left;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
     }
 }

@@ -1,5 +1,6 @@
 package be.jorisgulinck.domoticaspringbackend.services;
 
+import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
 import be.jorisgulinck.domoticaspringbackend.repository.SchemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class SchemaService implements CrudService<Schema> {
     @Override
     public Schema save(Schema entity) {
         return schemaRepository.save(entity);
+    }
+
+    public List<Schema> getByRoom(Room room) {
+        return schemaRepository.findByRoom(room);
     }
 
     @Override

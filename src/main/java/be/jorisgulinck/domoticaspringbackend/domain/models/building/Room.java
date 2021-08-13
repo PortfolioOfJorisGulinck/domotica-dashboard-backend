@@ -1,7 +1,7 @@
 package be.jorisgulinck.domoticaspringbackend.domain.models.building;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationService;
+import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationDevice;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,7 +20,7 @@ public class Room {
     private String description;
 
     @OneToMany(mappedBy = "room")
-    private List<AutomationService> automationServices;
+    private List<AutomationDevice> automationDevices;
 
     @OneToOne
     private Dimension dimension;
@@ -41,11 +41,11 @@ public class Room {
         this.id = id;
     }
 
-    public Room(int id, String name, String description, List<AutomationService> automationServices, Dimension dimension, Position position, Floor floor, List<Schema> schemes) {
+    public Room(int id, String name, String description, List<AutomationDevice> automationDevices, Dimension dimension, Position position, Floor floor, List<Schema> schemes) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.automationServices = automationServices;
+        this.automationDevices = automationDevices;
         this.dimension = dimension;
         this.position = position;
         this.floor = floor;
@@ -76,12 +76,12 @@ public class Room {
         this.description = description;
     }
 
-    public List<AutomationService> getAutomationServices() {
-        return automationServices;
+    public List<AutomationDevice> getAutomationServices() {
+        return automationDevices;
     }
 
-    public void setAutomationServices(List<AutomationService> automationServices) {
-        this.automationServices = automationServices;
+    public void setAutomationServices(List<AutomationDevice> automationDevices) {
+        this.automationDevices = automationDevices;
     }
 
     public Dimension getDimension() {

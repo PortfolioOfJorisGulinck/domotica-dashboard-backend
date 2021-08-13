@@ -1,6 +1,6 @@
 package be.jorisgulinck.domoticaspringbackend.domain.models.domotica;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationService;
+import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationDevice;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 
 import javax.persistence.*;
@@ -20,7 +20,7 @@ public class Schema {
     private String end;
 
     @OneToOne
-    private AutomationService automationService;
+    private AutomationDevice automationDevice;
 
     @ManyToOne
     private Room room;
@@ -28,11 +28,11 @@ public class Schema {
     public Schema() {
     }
 
-    public Schema(int id, String start, String end, AutomationService automationService, Room room) {
+    public Schema(int id, String start, String end, AutomationDevice automationDevice, Room room) {
         this.id = id;
         this.start = start;
         this.end = end;
-        this.automationService = automationService;
+        this.automationDevice = automationDevice;
         this.room = room;
     }
 
@@ -44,12 +44,12 @@ public class Schema {
         this.id = id;
     }
 
-    public AutomationService getService() {
-        return automationService;
+    public AutomationDevice getAutomationDevice() {
+        return automationDevice;
     }
 
-    public void setService(AutomationService automationService) {
-        this.automationService = automationService;
+    public void setAutomationDevice(AutomationDevice automationDevice) {
+        this.automationDevice = automationDevice;
     }
 
     public String getStart() {
@@ -75,6 +75,4 @@ public class Schema {
     public void setRoom(Room room) {
         this.room = room;
     }
-
-
 }

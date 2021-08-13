@@ -16,7 +16,7 @@ import javax.persistence.PersistenceUnit;
 @EnableJpaRepositories(basePackages = "be.jorisgulinck.domoticaspringbackend.repository")
 public class DomoticaSpringBackendApplication {
 
-    final static Logger logger = Logger.getLogger(DomoticaSpringBackendApplication.class);
+    //final static Logger logger = Logger.getLogger(DomoticaSpringBackendApplication.class);
 
     @PersistenceUnit
     private EntityManagerFactory emf;
@@ -35,7 +35,7 @@ public class DomoticaSpringBackendApplication {
             starterData.fillDatabase(entityManager);
             transaction.commit();
         } catch (Exception e) {
-            logger.debug(e.getMessage());
+            System.out.println(e.getMessage());
         } finally {
             entityManager.close();
         }
