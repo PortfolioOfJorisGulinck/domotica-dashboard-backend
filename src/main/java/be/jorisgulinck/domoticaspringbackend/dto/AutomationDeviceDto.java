@@ -1,20 +1,20 @@
 package be.jorisgulinck.domoticaspringbackend.dto;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.ServiceType;
+import be.jorisgulinck.domoticaspringbackend.domain.models.device.DeviceType;
 
 public class AutomationDeviceDto {
 
     private int id;
-    private ServiceType serviceType;
+    private DeviceType deviceType;
     private String value;
     private int roomId;
 
     public AutomationDeviceDto() {
     }
 
-    public AutomationDeviceDto(int id, ServiceType serviceType, String value, int roomId) {
+    public AutomationDeviceDto(int id, DeviceType deviceType, String value, int roomId) {
         this.id = id;
-        this.serviceType = serviceType;
+        this.deviceType = deviceType;
         this.value = value;
         this.roomId = roomId;
     }
@@ -27,12 +27,12 @@ public class AutomationDeviceDto {
         this.id = id;
     }
 
-    public ServiceType getServiceType() {
-        return serviceType;
+    public DeviceType getServiceType() {
+        return deviceType;
     }
 
-    public void setServiceType(ServiceType serviceType) {
-        this.serviceType = serviceType;
+    public void setServiceType(DeviceType deviceType) {
+        this.deviceType = deviceType;
     }
 
     public String getValue() {

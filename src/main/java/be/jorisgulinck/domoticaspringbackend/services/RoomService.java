@@ -2,23 +2,17 @@ package be.jorisgulinck.domoticaspringbackend.services;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.repository.RoomRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
-@Transactional
+@RequiredArgsConstructor
 public class RoomService implements CrudService<Room>{
 
     private final RoomRepository roomRepository;
-
-    @Autowired
-    public RoomService(RoomRepository roomRepository) {
-        this.roomRepository = roomRepository;
-    }
 
     @Override
     public Room save(Room entity) {

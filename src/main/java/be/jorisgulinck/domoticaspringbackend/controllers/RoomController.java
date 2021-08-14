@@ -4,6 +4,7 @@ import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.dto.DtoMapper;
 import be.jorisgulinck.domoticaspringbackend.dto.RoomDto;
 import be.jorisgulinck.domoticaspringbackend.services.RoomService;
+import lombok.RequiredArgsConstructor;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/rooms")
 public class RoomController {
@@ -21,12 +23,6 @@ public class RoomController {
 
     private final DtoMapper dtoMapper;
     private final RoomService roomService;
-
-    @Autowired
-    public RoomController(DtoMapper dtoMapper, RoomService roomService) {
-        this.dtoMapper = dtoMapper;
-        this.roomService = roomService;
-    }
 
     @PostMapping
     public ResponseEntity<RoomDto> addRoom(@RequestBody RoomDto roomDto) {

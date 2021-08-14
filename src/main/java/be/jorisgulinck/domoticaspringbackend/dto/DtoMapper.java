@@ -2,8 +2,8 @@ package be.jorisgulinck.domoticaspringbackend.dto;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationDevice;
+import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
+import be.jorisgulinck.domoticaspringbackend.domain.models.device.AutomationDevice;
 import be.jorisgulinck.domoticaspringbackend.services.AutomationDeviceService;
 import be.jorisgulinck.domoticaspringbackend.services.FloorService;
 import be.jorisgulinck.domoticaspringbackend.services.RoomService;
@@ -66,7 +66,7 @@ public class DtoMapper {
 
     public RoomDto roomToDto(Room room) {
         List<Integer> automationServiceIdList = new ArrayList<>();
-        for (AutomationDevice automationDevice : room.getAutomationServices()) {
+        for (AutomationDevice automationDevice : room.getAutomationDevices()) {
             automationServiceIdList.add(automationDevice.getId());
         }
         return new RoomDto(
@@ -137,7 +137,7 @@ public class DtoMapper {
     public AutomationDeviceDto automationDeviceToDto(AutomationDevice automationDevice) {
         return new AutomationDeviceDto(
                 automationDevice.getId(),
-                automationDevice.getServiceType(),
+                automationDevice.getDeviceType(),
                 automationDevice.getValue(),
                 automationDevice.getRoom().getId()
         );

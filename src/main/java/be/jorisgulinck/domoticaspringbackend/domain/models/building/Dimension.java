@@ -1,11 +1,19 @@
 package be.jorisgulinck.domoticaspringbackend.domain.models.building;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Table(name = "dimensions")
 public class Dimension {
-
     @Id
     @Column(name = "dimension_id")
     private int id;
@@ -15,37 +23,4 @@ public class Dimension {
 
     @Column(name = "dimension_height")
     private int height;
-
-    public Dimension() {
-    }
-
-    public Dimension(int id, int width, int height) {
-        this.id = id;
-        this.width = width;
-        this.height = height;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
 }

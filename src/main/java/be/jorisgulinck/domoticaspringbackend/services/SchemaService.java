@@ -1,8 +1,9 @@
 package be.jorisgulinck.domoticaspringbackend.services;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
+import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
 import be.jorisgulinck.domoticaspringbackend.repository.SchemaRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,15 +12,10 @@ import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
-@Transactional
+@RequiredArgsConstructor
 public class SchemaService implements CrudService<Schema> {
 
     private final SchemaRepository schemaRepository;
-
-    @Autowired
-    public SchemaService(SchemaRepository schemaRepository) {
-        this.schemaRepository = schemaRepository;
-    }
 
     @Override
     public Schema save(Schema entity) {

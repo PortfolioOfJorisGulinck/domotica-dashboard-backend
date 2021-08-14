@@ -1,11 +1,11 @@
 package be.jorisgulinck.domoticaspringbackend.controllers;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationDevice;
+import be.jorisgulinck.domoticaspringbackend.domain.models.device.AutomationDevice;
 import be.jorisgulinck.domoticaspringbackend.dto.AutomationDeviceDto;
 import be.jorisgulinck.domoticaspringbackend.dto.DtoMapper;
 import be.jorisgulinck.domoticaspringbackend.services.AutomationDeviceService;
+import lombok.RequiredArgsConstructor;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/automationdevices")
 public class AutomationDeviceController {
@@ -21,12 +22,6 @@ public class AutomationDeviceController {
 
     private final AutomationDeviceService automationDeviceService;
     private final DtoMapper dtoMapper;
-
-    @Autowired
-    public AutomationDeviceController(AutomationDeviceService automationDeviceService, DtoMapper dtoMapper) {
-        this.automationDeviceService = automationDeviceService;
-        this.dtoMapper = dtoMapper;
-    }
 
     @PostMapping
     public ResponseEntity<AutomationDeviceDto> addAutomationDevice(@RequestBody AutomationDeviceDto automationDeviceDto) {

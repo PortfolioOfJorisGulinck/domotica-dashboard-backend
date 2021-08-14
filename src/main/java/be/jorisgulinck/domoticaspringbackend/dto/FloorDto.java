@@ -1,9 +1,17 @@
 package be.jorisgulinck.domoticaspringbackend.dto;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class FloorDto {
 
     private int id;
@@ -11,45 +19,4 @@ public class FloorDto {
     private String image;
     private List<Integer> roomIdList;
 
-    public FloorDto() {
-    }
-
-    public FloorDto(int id, String name, String image, List<Integer> roomIdList) {
-        this.id = id;
-        this.name = name;
-        this.image = image;
-        this.roomIdList = roomIdList;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public List<Integer> getRoomIdList() {
-        return roomIdList;
-    }
-
-    public void setRoomIdList(List<Integer> roomIdList) {
-        this.roomIdList = roomIdList;
-    }
 }

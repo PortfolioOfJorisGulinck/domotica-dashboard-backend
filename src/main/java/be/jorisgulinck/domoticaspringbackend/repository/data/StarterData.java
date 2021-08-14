@@ -4,9 +4,9 @@ import be.jorisgulinck.domoticaspringbackend.domain.models.building.Dimension;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Position;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.domain.models.domotica.Schema;
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.AutomationDevice;
-import be.jorisgulinck.domoticaspringbackend.domain.models.service.ServiceType;
+import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
+import be.jorisgulinck.domoticaspringbackend.domain.models.device.AutomationDevice;
+import be.jorisgulinck.domoticaspringbackend.domain.models.device.DeviceType;
 import be.jorisgulinck.domoticaspringbackend.domain.models.user.User;
 
 import javax.persistence.EntityManager;
@@ -30,11 +30,11 @@ public class StarterData {
         room1.setDescription("Deze wijnkelder bevat een collectie van unieke wijnen, daterend van 1940 tem 2020. De eigenaar is opgegroeid in de wijngaard van zijn vader te Duitsland. Deze wijnkelder bevat unieke Riesling wijnen om van te dromen.");
 
         List<AutomationDevice> servicesOfRoom1 = new ArrayList<>();
-        AutomationDevice automationDevice1 = new AutomationDevice(1, ServiceType.LIGHTING, "8", room1);
+        AutomationDevice automationDevice1 = new AutomationDevice(1, DeviceType.LIGHTING, "8", room1);
         servicesOfRoom1.add(automationDevice1);
-        AutomationDevice automationDevice2 = new AutomationDevice(2, ServiceType.MUSIC, "6", room1);
+        AutomationDevice automationDevice2 = new AutomationDevice(2, DeviceType.MUSIC, "6", room1);
         servicesOfRoom1.add(automationDevice2);
-        room1.setAutomationServices(servicesOfRoom1);
+        room1.setAutomationDevices(servicesOfRoom1);
 
         Dimension dimension1 = new Dimension(1, 200, 200);
         room1.setDimension(dimension1);
@@ -49,9 +49,9 @@ public class StarterData {
         room2.setDescription("Deze ruimte bevat de boiler, electriciteitsmeter en waterstandmeter.");
 
         List<AutomationDevice> servicesOfRoom2 = new ArrayList<>();
-        AutomationDevice automationDevice3 = new AutomationDevice(3, ServiceType.LIGHTING, "10", room2);
+        AutomationDevice automationDevice3 = new AutomationDevice(3, DeviceType.LIGHTING, "10", room2);
         servicesOfRoom2.add(automationDevice3);
-        room2.setAutomationServices(servicesOfRoom2);
+        room2.setAutomationDevices(servicesOfRoom2);
 
         Dimension dimension2 = new Dimension(2, 300, 300);
         room2.setDimension(dimension2);
@@ -78,15 +78,15 @@ public class StarterData {
         room3.setDescription("Deze woonkamer, in klassieke stijl, is speciaal ontworpen door de vrouw des huizes. Zij is afkomstig van Groot Brittanië en stond erop om deze kamer in een klassieke cottage stijl in te richten om zich thuis te kunnen voelen in Duitsland.");
 
         List<AutomationDevice> servicesOfRoom3 = new ArrayList<>();
-        AutomationDevice automationDevice4 = new AutomationDevice(4, ServiceType.TEMPERATURE, "24", room3);
+        AutomationDevice automationDevice4 = new AutomationDevice(4, DeviceType.TEMPERATURE, "24", room3);
         servicesOfRoom3.add(automationDevice4);
-        AutomationDevice automationDevice5 = new AutomationDevice(5, ServiceType.LIGHTING, "5", room3);
+        AutomationDevice automationDevice5 = new AutomationDevice(5, DeviceType.LIGHTING, "5", room3);
         servicesOfRoom3.add(automationDevice5);
-        AutomationDevice automationDevice6 = new AutomationDevice(6, ServiceType.MUSIC, "5", room3);
+        AutomationDevice automationDevice6 = new AutomationDevice(6, DeviceType.MUSIC, "5", room3);
         servicesOfRoom3.add(automationDevice6);
-        AutomationDevice automationDevice7 = new AutomationDevice(7, ServiceType.CURTAINS, "closed", room3);
+        AutomationDevice automationDevice7 = new AutomationDevice(7, DeviceType.CURTAINS, "closed", room3);
         servicesOfRoom3.add(automationDevice7);
-        room3.setAutomationServices(servicesOfRoom3);
+        room3.setAutomationDevices(servicesOfRoom3);
 
         Dimension dimension3 = new Dimension(3, 300, 250);
         room3.setDimension(dimension3);
@@ -101,15 +101,15 @@ public class StarterData {
         room4.setDescription("Deze keuken is volledig ingericht met koelkast, twee ovens, microgofloven, vaatwasser en de nodige kasten.");
 
         List<AutomationDevice> servicesOfRoom4 = new ArrayList<>();
-        AutomationDevice automationDevice8 = new AutomationDevice(8, ServiceType.TEMPERATURE, "10", room4);
+        AutomationDevice automationDevice8 = new AutomationDevice(8, DeviceType.TEMPERATURE, "10", room4);
         servicesOfRoom4.add(automationDevice8);
-        AutomationDevice automationDevice9 = new AutomationDevice(9, ServiceType.LIGHTING, "13", room4);
+        AutomationDevice automationDevice9 = new AutomationDevice(9, DeviceType.LIGHTING, "13", room4);
         servicesOfRoom4.add(automationDevice9);
-        AutomationDevice automationDevice10 = new AutomationDevice(10, ServiceType.MUSIC, "10", room4);
+        AutomationDevice automationDevice10 = new AutomationDevice(10, DeviceType.MUSIC, "10", room4);
         servicesOfRoom4.add(automationDevice10);
-        AutomationDevice automationDevice11 = new AutomationDevice(11, ServiceType.CURTAINS, "open", room4);
+        AutomationDevice automationDevice11 = new AutomationDevice(11, DeviceType.CURTAINS, "open", room4);
         servicesOfRoom4.add(automationDevice11);
-        room4.setAutomationServices(servicesOfRoom4);
+        room4.setAutomationDevices(servicesOfRoom4);
 
         Dimension dimension4 = new Dimension(4, 150, 155);
         room4.setDimension(dimension4);
@@ -124,11 +124,11 @@ public class StarterData {
         room5.setDescription("Dit is de gang waar de heer en vrouw des huizes hun eerste indruk kunnen maken op de gasten.");
 
         List<AutomationDevice> servicesOfRoom5 = new ArrayList<>();
-        AutomationDevice automationDevice12 = new AutomationDevice(12, ServiceType.TEMPERATURE, "5", room5);
+        AutomationDevice automationDevice12 = new AutomationDevice(12, DeviceType.TEMPERATURE, "5", room5);
         servicesOfRoom5.add(automationDevice12);
-        AutomationDevice automationDevice13 = new AutomationDevice(13, ServiceType.LIGHTING, "11", room5);
+        AutomationDevice automationDevice13 = new AutomationDevice(13, DeviceType.LIGHTING, "11", room5);
         servicesOfRoom5.add(automationDevice13);
-        room5.setAutomationServices(servicesOfRoom5);
+        room5.setAutomationDevices(servicesOfRoom5);
 
         Dimension dimension5 = new Dimension(5, 220, 155);
         room5.setDimension(dimension5);
@@ -143,11 +143,11 @@ public class StarterData {
         room6.setDescription("Deze toilet mag er best wezen. Steeds fris en schoon!");
 
         List<AutomationDevice> servicesOfRoom6 = new ArrayList<>();
-        AutomationDevice automationDevice14 = new AutomationDevice(14, ServiceType.TEMPERATURE, "12", room6);
+        AutomationDevice automationDevice14 = new AutomationDevice(14, DeviceType.TEMPERATURE, "12", room6);
         servicesOfRoom6.add(automationDevice14);
-        AutomationDevice automationDevice15 = new AutomationDevice(15, ServiceType.LIGHTING, "8", room6);
+        AutomationDevice automationDevice15 = new AutomationDevice(15, DeviceType.LIGHTING, "8", room6);
         servicesOfRoom6.add(automationDevice15);
-        room6.setAutomationServices(servicesOfRoom6);
+        room6.setAutomationDevices(servicesOfRoom6);
 
         Dimension dimension6 = new Dimension(6, 180, 155);
         room6.setDimension(dimension6);
@@ -176,15 +176,15 @@ public class StarterData {
         room7.setDescription("Dit is de slaapkamer van de heer en vrouw des huizes. Rustig en ruim gelegen.");
 
         List<AutomationDevice> servicesOfRoom7 = new ArrayList<>();
-        AutomationDevice automationDevice16 = new AutomationDevice(16, ServiceType.TEMPERATURE, "14", room7);
+        AutomationDevice automationDevice16 = new AutomationDevice(16, DeviceType.TEMPERATURE, "14", room7);
         servicesOfRoom7.add(automationDevice16);
-        AutomationDevice automationDevice17 = new AutomationDevice(17, ServiceType.LIGHTING, "13", room7);
+        AutomationDevice automationDevice17 = new AutomationDevice(17, DeviceType.LIGHTING, "13", room7);
         servicesOfRoom7.add(automationDevice17);
-        AutomationDevice automationDevice18 = new AutomationDevice(18, ServiceType.MUSIC, "9", room7);
+        AutomationDevice automationDevice18 = new AutomationDevice(18, DeviceType.MUSIC, "9", room7);
         servicesOfRoom7.add(automationDevice18);
-        AutomationDevice automationDevice19 = new AutomationDevice(19, ServiceType.CURTAINS, "open", room7);
+        AutomationDevice automationDevice19 = new AutomationDevice(19, DeviceType.CURTAINS, "open", room7);
         servicesOfRoom7.add(automationDevice19);
-        room7.setAutomationServices(servicesOfRoom7);
+        room7.setAutomationDevices(servicesOfRoom7);
 
         Dimension dimension7 = new Dimension(7, 300, 300);
         room7.setDimension(dimension7);
@@ -199,15 +199,15 @@ public class StarterData {
         room8.setDescription("Dit is de slaapkamer van de dochter. Je verveelt je hier nooit. Teveel speelgoed om op te sommen...");
 
         List<AutomationDevice> servicesOfRoom8 = new ArrayList<>();
-        AutomationDevice automationDevice20 = new AutomationDevice(20, ServiceType.TEMPERATURE, "4", room8);
+        AutomationDevice automationDevice20 = new AutomationDevice(20, DeviceType.TEMPERATURE, "4", room8);
         servicesOfRoom8.add(automationDevice20);
-        AutomationDevice automationDevice21 = new AutomationDevice(21, ServiceType.LIGHTING, "3", room8);
+        AutomationDevice automationDevice21 = new AutomationDevice(21, DeviceType.LIGHTING, "3", room8);
         servicesOfRoom8.add(automationDevice21);
-        AutomationDevice automationDevice22 = new AutomationDevice(22, ServiceType.MUSIC, "6", room8);
+        AutomationDevice automationDevice22 = new AutomationDevice(22, DeviceType.MUSIC, "6", room8);
         servicesOfRoom8.add(automationDevice22);
-        AutomationDevice automationDevice23 = new AutomationDevice(23, ServiceType.CURTAINS, "closed", room8);
+        AutomationDevice automationDevice23 = new AutomationDevice(23, DeviceType.CURTAINS, "closed", room8);
         servicesOfRoom8.add(automationDevice23);
-        room8.setAutomationServices(servicesOfRoom8);
+        room8.setAutomationDevices(servicesOfRoom8);
 
         Dimension dimension8 = new Dimension(8, 220, 200);
         room8.setDimension(dimension8);
@@ -222,15 +222,15 @@ public class StarterData {
         room9.setDescription("Deze badkamer bevat een douche, bad en twee lavabo's.");
 
         List<AutomationDevice> servicesOfRoom9 = new ArrayList<>();
-        AutomationDevice automationDevice24 = new AutomationDevice(24, ServiceType.TEMPERATURE, "4", room9);
+        AutomationDevice automationDevice24 = new AutomationDevice(24, DeviceType.TEMPERATURE, "4", room9);
         servicesOfRoom9.add(automationDevice24);
-        AutomationDevice automationDevice25 = new AutomationDevice(25, ServiceType.LIGHTING, "0", room9);
+        AutomationDevice automationDevice25 = new AutomationDevice(25, DeviceType.LIGHTING, "0", room9);
         servicesOfRoom9.add(automationDevice25);
-        AutomationDevice automationDevice26 = new AutomationDevice(26, ServiceType.MUSIC, "10", room9);
+        AutomationDevice automationDevice26 = new AutomationDevice(26, DeviceType.MUSIC, "10", room9);
         servicesOfRoom9.add(automationDevice26);
-        AutomationDevice automationDevice27 = new AutomationDevice(27, ServiceType.CURTAINS, "open", room9);
+        AutomationDevice automationDevice27 = new AutomationDevice(27, DeviceType.CURTAINS, "open", room9);
         servicesOfRoom9.add(automationDevice27);
-        room9.setAutomationServices(servicesOfRoom9);
+        room9.setAutomationDevices(servicesOfRoom9);
 
         Dimension dimension9 = new Dimension(9, 160, 155);
         room9.setDimension(dimension9);
@@ -245,11 +245,11 @@ public class StarterData {
         room10.setDescription("Een toilet vol met interessante lectuur om de stoelgang te bevorderen.");
 
         List<AutomationDevice> servicesOfRoom10 = new ArrayList<>();
-        AutomationDevice automationDevice28 = new AutomationDevice(28, ServiceType.TEMPERATURE, "10", room10);
+        AutomationDevice automationDevice28 = new AutomationDevice(28, DeviceType.TEMPERATURE, "10", room10);
         servicesOfRoom10.add(automationDevice28);
-        AutomationDevice automationDevice29 = new AutomationDevice(29, ServiceType.LIGHTING, "8", room10);
+        AutomationDevice automationDevice29 = new AutomationDevice(29, DeviceType.LIGHTING, "8", room10);
         servicesOfRoom10.add(automationDevice29);
-        room10.setAutomationServices(servicesOfRoom10);
+        room10.setAutomationDevices(servicesOfRoom10);
 
         Dimension dimension10 = new Dimension(10, 150, 155);
         room10.setDimension(dimension10);
@@ -278,11 +278,11 @@ public class StarterData {
         room11.setDescription("Deze zolder is de speelruimte voor de kinderen. Hier bouwen ze kampen en spelen ze toneel.");
 
         List<AutomationDevice> servicesOfRoom11 = new ArrayList<>();
-        AutomationDevice automationDevice30 = new AutomationDevice(30, ServiceType.LIGHTING, "5", room11);
+        AutomationDevice automationDevice30 = new AutomationDevice(30, DeviceType.LIGHTING, "5", room11);
         servicesOfRoom11.add(automationDevice30);
-        AutomationDevice automationDevice31 = new AutomationDevice(31, ServiceType.MUSIC, "2", room11);
+        AutomationDevice automationDevice31 = new AutomationDevice(31, DeviceType.MUSIC, "2", room11);
         servicesOfRoom11.add(automationDevice31);
-        room11.setAutomationServices(servicesOfRoom11);
+        room11.setAutomationDevices(servicesOfRoom11);
 
         Dimension dimension11 = new Dimension(11, 400, 200);
         room11.setDimension(dimension11);
@@ -295,7 +295,7 @@ public class StarterData {
         Schema schema1 = new Schema();
         schema1.setId(1);
         schema1.setRoom(room4);
-        AutomationDevice automationDevice32 = new AutomationDevice(32, ServiceType.CURTAINS, "open");
+        AutomationDevice automationDevice32 = new AutomationDevice(32, DeviceType.CURTAINS, "open");
         schema1.setAutomationDevice(automationDevice32);
         schema1.setStart("14:00");
         schema1.setEnd("09:00");
@@ -306,7 +306,7 @@ public class StarterData {
         Schema schema2 = new Schema();
         schema2.setId(2);
         schema2.setRoom(room1);
-        AutomationDevice automationDevice33 = new AutomationDevice(33, ServiceType.LIGHTING, "0");
+        AutomationDevice automationDevice33 = new AutomationDevice(33, DeviceType.LIGHTING, "0");
         schema2.setAutomationDevice(automationDevice33);
         schema2.setStart("14:00");
         schema2.setEnd("10:00");
@@ -317,7 +317,7 @@ public class StarterData {
         Schema schema3 = new Schema();
         schema3.setId(3);
         schema3.setRoom(room4);
-        AutomationDevice automationDevice34 = new AutomationDevice(34, ServiceType.TEMPERATURE, "11");
+        AutomationDevice automationDevice34 = new AutomationDevice(34, DeviceType.TEMPERATURE, "11");
         schema3.setAutomationDevice(automationDevice34);
         schema3.setStart("08:00");
         schema3.setEnd("11:00");
@@ -327,7 +327,7 @@ public class StarterData {
         Schema schema4 = new Schema();
         schema4.setId(4);
         schema4.setRoom(room4);
-        AutomationDevice automationDevice35 = new AutomationDevice(35, ServiceType.CURTAINS, "closed");
+        AutomationDevice automationDevice35 = new AutomationDevice(35, DeviceType.CURTAINS, "closed");
         schema4.setAutomationDevice(automationDevice35);
         schema4.setStart("14:00");
         schema4.setEnd("18:00");

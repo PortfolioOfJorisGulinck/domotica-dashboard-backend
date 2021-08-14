@@ -4,7 +4,7 @@ import be.jorisgulinck.domoticaspringbackend.dto.DtoMapper;
 import be.jorisgulinck.domoticaspringbackend.dto.FloorDto;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
 import be.jorisgulinck.domoticaspringbackend.services.FloorService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 import java.util.Arrays;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/floors")
 public class FloorController {
@@ -22,13 +23,6 @@ public class FloorController {
     private final FloorService floorService;
     private final DtoMapper dtoMapper;
 
-    @Autowired
-    public FloorController(FloorService floorService, DtoMapper dtoMapper) {
-        this.floorService = floorService;
-        this.dtoMapper = dtoMapper;
-    }
-
-    //@AuthenticationPrincipal CustomUserDetails userDetails
     @PostMapping
     public ResponseEntity<FloorDto> addFloor(@RequestBody FloorDto floorDto) {
         floorService.save(dtoMapper.dtoToFloor(floorDto));
