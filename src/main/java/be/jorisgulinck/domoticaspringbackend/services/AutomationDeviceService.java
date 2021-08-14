@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class AutomationDeviceService implements CrudService<AutomationDevice>{
+public class AutomationDeviceService implements CrudService<AutomationDevice> {
 
     private final AutomationDeviceRepository automationDeviceRepository;
 

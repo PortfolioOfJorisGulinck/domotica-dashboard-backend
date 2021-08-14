@@ -6,7 +6,6 @@ import be.jorisgulinck.domoticaspringbackend.domain.models.building.Position;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.domain.models.device.AutomationDevice;
 import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
-import be.jorisgulinck.domoticaspringbackend.repository.FloorRepository;
 import be.jorisgulinck.domoticaspringbackend.repository.RoomRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

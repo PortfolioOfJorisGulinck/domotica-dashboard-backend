@@ -1,7 +1,6 @@
 package be.jorisgulinck.domoticaspringbackend;
 
 import be.jorisgulinck.domoticaspringbackend.repository.data.StarterData;
-import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -15,8 +14,6 @@ import javax.persistence.PersistenceUnit;
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "be.jorisgulinck.domoticaspringbackend.repository")
 public class DomoticaSpringBackendApplication {
-
-    //final static Logger logger = Logger.getLogger(DomoticaSpringBackendApplication.class);
 
     @PersistenceUnit
     private EntityManagerFactory emf;
@@ -40,4 +37,5 @@ public class DomoticaSpringBackendApplication {
             entityManager.close();
         }
     }
+
 }

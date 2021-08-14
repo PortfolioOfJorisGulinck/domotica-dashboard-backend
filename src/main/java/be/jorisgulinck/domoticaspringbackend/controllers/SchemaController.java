@@ -1,11 +1,10 @@
 package be.jorisgulinck.domoticaspringbackend.controllers;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
-import be.jorisgulinck.domoticaspringbackend.dto.DtoMapper;
+import be.jorisgulinck.domoticaspringbackend.dto.mappers.DtoMapper;
 import be.jorisgulinck.domoticaspringbackend.dto.SchemaDto;
 import be.jorisgulinck.domoticaspringbackend.services.SchemaService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

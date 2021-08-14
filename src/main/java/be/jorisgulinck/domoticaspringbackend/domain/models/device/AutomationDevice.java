@@ -28,10 +28,4 @@ public class AutomationDevice {
 
     @ManyToOne
     private Room room;
-
-    public AutomationDevice(int id, DeviceType deviceType, String value) {
-        this.id = id;
-        this.deviceType = deviceType;
-        this.value = value;
-    }
 }

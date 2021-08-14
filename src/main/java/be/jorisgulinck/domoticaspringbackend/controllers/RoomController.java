@@ -1,12 +1,11 @@
 package be.jorisgulinck.domoticaspringbackend.controllers;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.dto.DtoMapper;
+import be.jorisgulinck.domoticaspringbackend.dto.mappers.DtoMapper;
 import be.jorisgulinck.domoticaspringbackend.dto.RoomDto;
 import be.jorisgulinck.domoticaspringbackend.services.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

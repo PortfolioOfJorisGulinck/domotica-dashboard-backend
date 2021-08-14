@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class RoomService implements CrudService<Room>{
+public class RoomService implements CrudService<Room> {
 
     private final RoomRepository roomRepository;
 
@@ -36,4 +36,5 @@ public class RoomService implements CrudService<Room>{
                 .orElseThrow(EntityNotFoundException::new);
         roomRepository.delete(room);
     }
+
 }

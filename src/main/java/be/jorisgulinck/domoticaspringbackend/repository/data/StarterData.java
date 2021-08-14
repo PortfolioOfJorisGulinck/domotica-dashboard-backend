@@ -295,7 +295,7 @@ public class StarterData {
         Schema schema1 = new Schema();
         schema1.setId(1);
         schema1.setRoom(room4);
-        AutomationDevice automationDevice32 = new AutomationDevice(32, DeviceType.CURTAINS, "open");
+        AutomationDevice automationDevice32 = new AutomationDevice(32, DeviceType.CURTAINS, "open", room4);
         schema1.setAutomationDevice(automationDevice32);
         schema1.setStart("14:00");
         schema1.setEnd("09:00");
@@ -306,7 +306,7 @@ public class StarterData {
         Schema schema2 = new Schema();
         schema2.setId(2);
         schema2.setRoom(room1);
-        AutomationDevice automationDevice33 = new AutomationDevice(33, DeviceType.LIGHTING, "0");
+        AutomationDevice automationDevice33 = new AutomationDevice(33, DeviceType.LIGHTING, "0", room1);
         schema2.setAutomationDevice(automationDevice33);
         schema2.setStart("14:00");
         schema2.setEnd("10:00");
@@ -317,7 +317,7 @@ public class StarterData {
         Schema schema3 = new Schema();
         schema3.setId(3);
         schema3.setRoom(room4);
-        AutomationDevice automationDevice34 = new AutomationDevice(34, DeviceType.TEMPERATURE, "11");
+        AutomationDevice automationDevice34 = new AutomationDevice(34, DeviceType.TEMPERATURE, "11", room4);
         schema3.setAutomationDevice(automationDevice34);
         schema3.setStart("08:00");
         schema3.setEnd("11:00");
@@ -327,7 +327,7 @@ public class StarterData {
         Schema schema4 = new Schema();
         schema4.setId(4);
         schema4.setRoom(room4);
-        AutomationDevice automationDevice35 = new AutomationDevice(35, DeviceType.CURTAINS, "closed");
+        AutomationDevice automationDevice35 = new AutomationDevice(35, DeviceType.CURTAINS, "closed", room4);
         schema4.setAutomationDevice(automationDevice35);
         schema4.setStart("14:00");
         schema4.setEnd("18:00");
@@ -417,6 +417,7 @@ public class StarterData {
         entityManager.merge(automationDevice28);
         entityManager.merge(automationDevice29);
         entityManager.merge(automationDevice30);
+
         entityManager.merge(automationDevice31);
         entityManager.merge(automationDevice32);
         entityManager.merge(automationDevice33);
