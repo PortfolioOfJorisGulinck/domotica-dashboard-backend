@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FloorDtoMapper {
 
-    private final RoomService roomService;
+    //private final RoomService roomService;
 
     public FloorDto floorToDto(Floor floor) {
         List<Integer> roomIdList = new ArrayList<>();
@@ -29,7 +29,7 @@ public class FloorDtoMapper {
         );
     }
 
-    public Floor dtoToFloor(FloorDto floorDto) {
+    /*public Floor dtoToFloor(FloorDto floorDto) {
         List<Room> rooms = new ArrayList<>();
         for (int roomId : floorDto.getRooms()) {
             rooms.add(roomService.getById(roomId));
@@ -40,7 +40,7 @@ public class FloorDtoMapper {
                 floorDto.getImage(),
                 rooms
         );
-    }
+    }*/
 
     public List<FloorDto> floorsToDtoList(List<Floor> floors) {
         List<FloorDto> floorDtoList = new ArrayList<>();
@@ -49,4 +49,5 @@ public class FloorDtoMapper {
         }
         return floorDtoList;
     }
+
 }

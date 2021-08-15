@@ -1,8 +1,6 @@
 package be.jorisgulinck.domoticaspringbackend.domain.models.schema;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.device.AutomationDevice;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,13 +9,13 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @Table(name = "schemes")
 public class Schema {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "schema_id")
     private int id;
 
@@ -27,9 +25,20 @@ public class Schema {
     @Column(name = "schema_end")
     private String end;
 
-    @OneToOne
-    private AutomationDevice automationDevice;
+    @Column(name = "schema_device")
+    private String device;
+
+    @Column(name = "schema_device_value")
+    private String deviceValue;
 
     @ManyToOne
     private Room room;
+
+    public Schema(String start, String end, String device, String deviceValue, Room room) {
+        this.start = start;
+        this.end = end;
+        this.device = device;
+        this.deviceValue = deviceValue;
+        this.room = room;
+    }
 }

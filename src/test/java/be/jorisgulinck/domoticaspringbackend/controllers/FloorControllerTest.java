@@ -47,7 +47,8 @@ class FloorControllerTest {
                 .build();
 
         List<Room> rooms = new ArrayList<>(Arrays.asList(new Room(1), new Room(2)));
-        floor = new Floor(20, "new floor", "/images/new-floor.jpg", rooms);
+        floor = new Floor(20, "new floor", "/images/new-floor.jpg");
+        floor.setRooms(rooms);
         floors = new ArrayList<>(Arrays.asList(floor));
     }
 

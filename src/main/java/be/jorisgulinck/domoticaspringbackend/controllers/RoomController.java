@@ -1,8 +1,8 @@
 package be.jorisgulinck.domoticaspringbackend.controllers;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.dto.mappers.DtoMapper;
 import be.jorisgulinck.domoticaspringbackend.dto.RoomDto;
+import be.jorisgulinck.domoticaspringbackend.dto.mappers.RoomDtoMapper;
 import be.jorisgulinck.domoticaspringbackend.services.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.apache.log4j.Logger;
@@ -15,29 +15,23 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@CrossOrigin
 @RequestMapping("/rooms")
 public class RoomController {
 
     final static Logger logger = Logger.getLogger(RoomController.class);
 
-    private final DtoMapper dtoMapper;
+    private final RoomDtoMapper dtoMapper;
     private final RoomService roomService;
 
-    @PostMapping
-    public ResponseEntity<RoomDto> addRoom(@RequestBody RoomDto roomDto) {
-        roomService.save(dtoMapper.dtoToRoom(roomDto));
-        logger.debug("Added:: " + roomDto);
-        return new ResponseEntity<>(roomDto, HttpStatus.CREATED);
-    }
-
-    @PutMapping
-    public ResponseEntity<Void> updateRoom(@RequestBody RoomDto roomDto) {
-        Room existingRoom = roomService.getById(roomDto.getId());
+    @PutMapping(value = "{id}")
+    public ResponseEntity<Void> updateRoom(@PathVariable int id, @RequestBody RoomDto roomDto) {
+        Room existingRoom = roomService.getById(id);
         if (existingRoom == null) {
             logger.debug("Room with id " + roomDto.getId() + " does not exists");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            roomService.save(dtoMapper.dtoToRoom(roomDto));
+            roomService.save(dtoMapper.dtoToRoom(roomDto, existingRoom));
             return new ResponseEntity<>(HttpStatus.OK);
         }
     }
@@ -64,18 +58,5 @@ public class RoomController {
         }
         logger.debug("Found room:: " + room);
         return new ResponseEntity<>(dtoMapper.roomToDto(room), HttpStatus.OK);
-    }
-
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> deleteRoom(@PathVariable int id) {
-        Room room = roomService.getById(id);
-        if (room == null) {
-            logger.debug("Room with id " + id + " does not exists");
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } else {
-            roomService.delete(id);
-            logger.debug("Room with id " + id + " deleted");
-            return new ResponseEntity<>(HttpStatus.GONE);
-        }
     }
 }

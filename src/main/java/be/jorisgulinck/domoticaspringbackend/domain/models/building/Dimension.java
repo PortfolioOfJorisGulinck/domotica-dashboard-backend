@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Setter
 @Table(name = "dimensions")
 public class Dimension {
+
     @Id
     @Column(name = "dimension_id")
     private int id;

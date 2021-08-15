@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Setter
 @Table(name = "users")
 public class User {
+
     @Id
     @Column(name = "user_id")
     private int id;
@@ -29,4 +30,5 @@ public class User {
 
     @Column(name = "roles", nullable = false)
     private String roles;
+
 }

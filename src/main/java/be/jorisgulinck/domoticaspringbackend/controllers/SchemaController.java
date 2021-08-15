@@ -1,8 +1,8 @@
 package be.jorisgulinck.domoticaspringbackend.controllers;
 
 import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
-import be.jorisgulinck.domoticaspringbackend.dto.mappers.DtoMapper;
 import be.jorisgulinck.domoticaspringbackend.dto.SchemaDto;
+import be.jorisgulinck.domoticaspringbackend.dto.mappers.SchemaDtoMapper;
 import be.jorisgulinck.domoticaspringbackend.services.SchemaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,13 +15,14 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@CrossOrigin
 @RequestMapping("/schemes")
 public class SchemaController {
 
     final static Logger logger = Logger.getLogger(FloorController.class);
 
     private final SchemaService schemaService;
-    private final DtoMapper dtoMapper;
+    private final SchemaDtoMapper dtoMapper;
 
     @PostMapping
     public ResponseEntity<SchemaDto> addSchema(@RequestBody SchemaDto schemaDto) {

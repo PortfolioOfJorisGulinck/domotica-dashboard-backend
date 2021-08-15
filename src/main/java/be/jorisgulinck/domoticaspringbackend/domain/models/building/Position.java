@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Setter
 @Table(name = "positions")
 public class Position {
+
     @Id
     @Column(name = "position_id")
     private int id;

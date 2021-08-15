@@ -4,7 +4,6 @@ import be.jorisgulinck.domoticaspringbackend.domain.models.building.Dimension;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Position;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.domain.models.device.AutomationDevice;
 import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
 import be.jorisgulinck.domoticaspringbackend.repository.RoomRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,17 +37,20 @@ class RoomServiceTest {
 
     @BeforeEach
     void setUp() {
-        List<AutomationDevice> automationDevices = new ArrayList<>(Arrays.asList(new AutomationDevice(), new AutomationDevice()));
         List<Schema> schemes = new ArrayList<>(Arrays.asList(new Schema(), new Schema()));
-        room = new Room(20,
+        room = new Room(
+                20,
                 "new room",
                 "description of new room",
-                automationDevices,
+                "10",
+                "10",
+                "10",
+                "false",
                 new Dimension(20, 50, 50),
                 new Position(20, 50, 50),
-                new Floor(),
-                schemes
+                new Floor()
         );
+        room.setSchemes(schemes);
         rooms = new ArrayList<>(Arrays.asList(room));
     }
 

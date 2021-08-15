@@ -1,23 +1,19 @@
 package be.jorisgulinck.domoticaspringbackend.dto.mappers;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Dimension;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Position;
 import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.domain.models.device.AutomationDevice;
-import be.jorisgulinck.domoticaspringbackend.domain.models.device.DeviceType;
 import be.jorisgulinck.domoticaspringbackend.dto.RoomDto;
-import be.jorisgulinck.domoticaspringbackend.services.FloorService;
 import be.jorisgulinck.domoticaspringbackend.services.RoomService;
 import be.jorisgulinck.domoticaspringbackend.services.SchemaService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 @RequiredArgsConstructor
 public class RoomDtoMapper {
 
-    private final FloorService floorService;
     private final SchemaService schemaService;
     private final RoomService roomService;
 
@@ -26,10 +22,10 @@ public class RoomDtoMapper {
                 room.getId(),
                 room.getName(),
                 room.getDescription(),
-                mapToTemperature(room.getAutomationDevices()),
-                mapToLighting(room.getAutomationDevices()),
-                mapToMusic(room.getAutomationDevices()),
-                mapToCurtains(room.getAutomationDevices()),
+                room.getTemperature(),
+                room.getLighting(),
+                room.getMusic(),
+                room.getCurtains(),
                 room.getPosition().getTop(),
                 room.getPosition().getLeft(),
                 room.getDimension().getHeight(),
@@ -38,18 +34,13 @@ public class RoomDtoMapper {
         );
     }
 
-    // TODO change domain models so that id is automated -> see RoomDtoMapper
-    public Room dtoToRoom(RoomDto roomDto) {
-        return new Room(
-                roomDto.getId(),
-                roomDto.getName(),
-                roomDto.getDescription(),
-                mapToAutomationDeviceList(roomDto),
-                new Dimension(80, roomDto.getWidth(), roomDto.getHeight()),
-                new Position(80, roomDto.getTop(), roomDto.getLeft()),
-                floorService.getById(roomDto.getFloorId()),
-                schemaService.getByRoom(roomService.getById(roomDto.getId()))
-        );
+    public Room dtoToRoom(RoomDto roomDto, Room room) {
+        room.setTemperature(roomDto.getTemperature());
+        room.setLighting(roomDto.getLighting());
+        room.setMusic(roomDto.getMusic());
+        room.setCurtains(roomDto.getCurtains());
+        room.setSchemes(schemaService.getByRoom(roomService.getById(roomDto.getId())));
+        return room;
     }
 
     public List<RoomDto> roomsToDtoList(List<Room> rooms) {
@@ -60,48 +51,4 @@ public class RoomDtoMapper {
         return roomDtoList;
     }
 
-    public String mapToTemperature(List<AutomationDevice> devices) {
-        String deviceValue = null;
-        for (AutomationDevice device : devices) {
-            if (device.getDeviceType() == DeviceType.TEMPERATURE) {
-                deviceValue = device.getValue();
-            }
-        }
-        return deviceValue;
-    }
-
-    public String mapToLighting(List<AutomationDevice> devices) {
-        String deviceValue = null;
-        for (AutomationDevice device : devices) {
-            if (device.getDeviceType() == DeviceType.LIGHTING) {
-                deviceValue = device.getValue();
-            }
-        }
-        return deviceValue;
-    }
-
-    public String mapToMusic(List<AutomationDevice> devices) {
-        String deviceValue = null;
-        for (AutomationDevice device : devices) {
-            if (device.getDeviceType() == DeviceType.MUSIC) {
-                deviceValue = device.getValue();
-            }
-        }
-        return deviceValue;
-    }
-
-    public String mapToCurtains(List<AutomationDevice> devices) {
-        String deviceValue = null;
-        for (AutomationDevice device : devices) {
-            if (device.getDeviceType() == DeviceType.CURTAINS) {
-                deviceValue = device.getValue();
-            }
-        }
-        return deviceValue;
-    }
-
-    // TODO afwerken van methoden in RoomDtoMapper
-    private List<AutomationDevice> mapToAutomationDeviceList(RoomDto roomDto) {
-        return null;
-    }
 }

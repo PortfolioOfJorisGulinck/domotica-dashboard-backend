@@ -10,11 +10,11 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @Table(name = "floors")
 public class Floor {
+
     @Id
     @Column(name = "floor_id")
     private int id;
@@ -27,4 +27,10 @@ public class Floor {
 
     @OneToMany(mappedBy = "floor")
     private List<Room> rooms;
+
+    public Floor(int id, String name, String image) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+    }
 }
