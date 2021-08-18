@@ -11,7 +11,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceUnit;
 
-@SpringBootApplication
+@SpringBootApplication()
 @EnableJpaRepositories(basePackages = "be.jorisgulinck.domoticaspringbackend.repository")
 public class DomoticaSpringBackendApplication {
 
