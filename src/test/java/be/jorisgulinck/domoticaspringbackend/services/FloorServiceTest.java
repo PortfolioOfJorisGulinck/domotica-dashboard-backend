@@ -1,7 +1,7 @@
 package be.jorisgulinck.domoticaspringbackend.services;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.repository.FloorRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package be.jorisgulinck.domoticaspringbackend.services;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
+import be.jorisgulinck.domoticaspringbackend.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.models.schema.Schema;
 import be.jorisgulinck.domoticaspringbackend.repository.SchemaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

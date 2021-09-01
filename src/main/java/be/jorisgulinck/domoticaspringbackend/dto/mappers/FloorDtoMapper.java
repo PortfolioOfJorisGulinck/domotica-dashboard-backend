@@ -1,9 +1,8 @@
 package be.jorisgulinck.domoticaspringbackend.dto.mappers;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.dto.FloorDto;
-import be.jorisgulinck.domoticaspringbackend.services.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

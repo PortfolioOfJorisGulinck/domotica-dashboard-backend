@@ -1,6 +1,6 @@
 package be.jorisgulinck.domoticaspringbackend.dto.mappers;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.dto.RoomDto;
 import be.jorisgulinck.domoticaspringbackend.services.RoomService;
 import be.jorisgulinck.domoticaspringbackend.services.SchemaService;

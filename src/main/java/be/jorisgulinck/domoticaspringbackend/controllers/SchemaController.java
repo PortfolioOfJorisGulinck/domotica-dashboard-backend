@@ -1,6 +1,6 @@
 package be.jorisgulinck.domoticaspringbackend.controllers;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
+import be.jorisgulinck.domoticaspringbackend.models.schema.Schema;
 import be.jorisgulinck.domoticaspringbackend.dto.SchemaDto;
 import be.jorisgulinck.domoticaspringbackend.dto.mappers.SchemaDtoMapper;
 import be.jorisgulinck.domoticaspringbackend.services.SchemaService;

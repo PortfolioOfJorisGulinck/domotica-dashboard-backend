@@ -1,4 +1,4 @@
-package be.jorisgulinck.domoticaspringbackend.domain.models.user;
+package be.jorisgulinck.domoticaspringbackend.models.user;
 
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

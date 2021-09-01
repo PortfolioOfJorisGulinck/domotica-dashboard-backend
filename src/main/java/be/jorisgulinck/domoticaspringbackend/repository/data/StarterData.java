@@ -1,11 +1,11 @@
 package be.jorisgulinck.domoticaspringbackend.repository.data;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Dimension;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Position;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
-import be.jorisgulinck.domoticaspringbackend.domain.models.user.User;
+import be.jorisgulinck.domoticaspringbackend.models.building.Dimension;
+import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.models.building.Position;
+import be.jorisgulinck.domoticaspringbackend.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.models.schema.Schema;
+import be.jorisgulinck.domoticaspringbackend.models.user.User;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;

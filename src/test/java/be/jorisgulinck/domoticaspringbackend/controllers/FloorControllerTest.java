@@ -1,7 +1,7 @@
 package be.jorisgulinck.domoticaspringbackend.controllers;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.models.building.Room;
 import be.jorisgulinck.domoticaspringbackend.services.FloorService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;

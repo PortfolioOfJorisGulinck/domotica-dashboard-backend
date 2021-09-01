@@ -1,6 +1,6 @@
-package be.jorisgulinck.domoticaspringbackend.domain.models.schema;
+package be.jorisgulinck.domoticaspringbackend.models.schema;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.models.building.Room;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

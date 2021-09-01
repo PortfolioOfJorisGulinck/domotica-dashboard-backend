@@ -1,10 +1,10 @@
 package be.jorisgulinck.domoticaspringbackend.services;
 
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Dimension;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Position;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Room;
-import be.jorisgulinck.domoticaspringbackend.domain.models.schema.Schema;
+import be.jorisgulinck.domoticaspringbackend.models.building.Dimension;
+import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.models.building.Position;
+import be.jorisgulinck.domoticaspringbackend.models.building.Room;
+import be.jorisgulinck.domoticaspringbackend.models.schema.Schema;
 import be.jorisgulinck.domoticaspringbackend.repository.RoomRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

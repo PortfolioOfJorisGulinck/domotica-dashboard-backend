@@ -1,4 +1,4 @@
-package be.jorisgulinck.domoticaspringbackend.domain.models.building;
+package be.jorisgulinck.domoticaspringbackend.models.building;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

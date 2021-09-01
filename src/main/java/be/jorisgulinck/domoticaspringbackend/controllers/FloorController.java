@@ -1,7 +1,7 @@
 package be.jorisgulinck.domoticaspringbackend.controllers;
 
 import be.jorisgulinck.domoticaspringbackend.dto.FloorDto;
-import be.jorisgulinck.domoticaspringbackend.domain.models.building.Floor;
+import be.jorisgulinck.domoticaspringbackend.models.building.Floor;
 import be.jorisgulinck.domoticaspringbackend.dto.mappers.FloorDtoMapper;
 import be.jorisgulinck.domoticaspringbackend.services.FloorService;
 import lombok.RequiredArgsConstructor;
