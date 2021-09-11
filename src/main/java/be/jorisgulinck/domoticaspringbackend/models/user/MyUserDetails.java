@@ -62,4 +62,8 @@ public class MyUserDetails implements UserDetails {
         return active;
     }
 
+    public void setUsername(String username) {
+        this.userName = username;
+    }
+
 }

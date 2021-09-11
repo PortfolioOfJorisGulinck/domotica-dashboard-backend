@@ -1,4 +1,4 @@
-package be.jorisgulinck.domoticaspringbackend.security;
+package be.jorisgulinck.domoticaspringbackend.services;
 
 import be.jorisgulinck.domoticaspringbackend.models.user.MyUserDetails;
 import be.jorisgulinck.domoticaspringbackend.models.user.User;
